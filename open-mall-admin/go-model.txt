@@ -1,0 +1,25 @@
+{
+    "backTheme" : "None",
+    "frontTheme" : "Vue",
+    "projectName" : "open-mall-admin",
+    "projectAdminName" : "open-mall-admin",
+    "packageName" : "com.openmall.user",
+    "dataBaseName": "open_mall_user",
+    "DatabaseIp"  : "127.0.0.1",
+    "DatabasePort":  3306,
+    "DatabaseUsername": "root",
+    "DatabasePassword": "111111",
+    "exportPath": "D:\\01.Project\\open-mall\\",
+    "firstInit" : false,
+    "tableConfigList": [
+        {
+            "tableName": "user",
+            "singleQueryList": [
+                "username"
+            ],
+            "inListQuery": [
+                "created_time"
+            ]
+        }
+    ]
+}
