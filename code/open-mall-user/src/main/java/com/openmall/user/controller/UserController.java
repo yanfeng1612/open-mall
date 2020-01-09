@@ -100,7 +100,7 @@ public class UserController {
      * 查询数据详情
      */
     @RequestMapping(value = "/detail", method = {RequestMethod.POST,RequestMethod.GET})
-    public Response<User> getUserById(@RequestBody User user) {
+    public Response<User> getUserById(User user) {
         LOG.info("查询参数 {}",user) ;
         Response<User> response = new Response<>();
         try {

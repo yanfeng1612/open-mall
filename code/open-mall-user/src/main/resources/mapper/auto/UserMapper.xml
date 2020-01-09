@@ -6,6 +6,13 @@
     <resultMap id="baseResultMap" type="com.openmall.user.pojo.User">
         <result property="id" column="id" />
         <result property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="phone" column="phone" />
+        <result property="address" column="address" />
+        <result property="sex" column="sex" />
+        <result property="age" column="age" />
+        <result property="birth" column="birth" />
+        <result property="email" column="email" />
         <result property="yn" column="yn" />
         <result property="createdTime" column="created_time" />
         <result property="modifiedTime" column="modified_time" />
@@ -18,6 +25,20 @@
             ,id	/* 自动编号 */
         
             ,username	/* 用户名 */
+        
+            ,password	/* 密码 */
+        
+            ,phone	/* 手机号 */
+        
+            ,address	/* 地址 */
+        
+            ,sex	/* 用户性别  0-未知   1-男  2-女 */
+        
+            ,age	/* 用户年龄 */
+        
+            ,birth	/* 生日 */
+        
+            ,email	/* 邮箱 */
         
             ,yn	/* 数据状态 0-无效 1-有效 */
         
@@ -37,6 +58,34 @@
         
             <if test="query.username != null and query.username != ''">
                 and username = #{query.username} /* 用户名 */
+            </if>
+        
+            <if test="query.password != null and query.password != ''">
+                and password = #{query.password} /* 密码 */
+            </if>
+        
+            <if test="query.phone != null and query.phone != ''">
+                and phone = #{query.phone} /* 手机号 */
+            </if>
+        
+            <if test="query.address != null and query.address != ''">
+                and address = #{query.address} /* 地址 */
+            </if>
+        
+            <if test="query.sex != null">
+                and sex = #{query.sex} /* 用户性别  0-未知   1-男  2-女 */
+            </if>
+        
+            <if test="query.age != null">
+                and age = #{query.age} /* 用户年龄 */
+            </if>
+        
+            <if test="query.birth != null">
+                and birth = #{query.birth} /* 生日 */
+            </if>
+        
+            <if test="query.email != null and query.email != ''">
+                and email = #{query.email} /* 邮箱 */
             </if>
         
             <if test="query.yn != null">
@@ -65,6 +114,34 @@
             ,username /* 用户名 */
         </if>
         
+        <if test="password != null">
+            ,password /* 密码 */
+        </if>
+        
+        <if test="phone != null">
+            ,phone /* 手机号 */
+        </if>
+        
+        <if test="address != null">
+            ,address /* 地址 */
+        </if>
+        
+        <if test="sex != null">
+            ,sex /* 用户性别  0-未知   1-男  2-女 */
+        </if>
+        
+        <if test="age != null">
+            ,age /* 用户年龄 */
+        </if>
+        
+        <if test="birth != null">
+            ,birth /* 生日 */
+        </if>
+        
+        <if test="email != null">
+            ,email /* 邮箱 */
+        </if>
+        
         <if test="yn != null">
             ,yn /* 数据状态 0-无效 1-有效 */
         </if>
@@ -89,6 +166,34 @@
         
         <if test="username != null">
             ,#username /* 用户名 */
+        </if>
+        
+        <if test="password != null">
+            ,#password /* 密码 */
+        </if>
+        
+        <if test="phone != null">
+            ,#phone /* 手机号 */
+        </if>
+        
+        <if test="address != null">
+            ,#address /* 地址 */
+        </if>
+        
+        <if test="sex != null">
+            ,#sex /* 用户性别  0-未知   1-男  2-女 */
+        </if>
+        
+        <if test="age != null">
+            ,#age /* 用户年龄 */
+        </if>
+        
+        <if test="birth != null">
+            ,#birth /* 生日 */
+        </if>
+        
+        <if test="email != null">
+            ,#email /* 邮箱 */
         </if>
         
         <if test="yn != null">
@@ -125,6 +230,20 @@
         
             ,username	/* 用户名 */
         
+            ,password	/* 密码 */
+        
+            ,phone	/* 手机号 */
+        
+            ,address	/* 地址 */
+        
+            ,sex	/* 用户性别  0-未知   1-男  2-女 */
+        
+            ,age	/* 用户年龄 */
+        
+            ,birth	/* 生日 */
+        
+            ,email	/* 邮箱 */
+        
             ,yn	/* 数据状态 0-无效 1-有效 */
         
             ,created_time	/* 创建时间 */
@@ -139,6 +258,20 @@
                 ,#{item.id}	/* 自动编号 */
             
                 ,#{item.username}	/* 用户名 */
+            
+                ,#{item.password}	/* 密码 */
+            
+                ,#{item.phone}	/* 手机号 */
+            
+                ,#{item.address}	/* 地址 */
+            
+                ,#{item.sex}	/* 用户性别  0-未知   1-男  2-女 */
+            
+                ,#{item.age}	/* 用户年龄 */
+            
+                ,#{item.birth}	/* 生日 */
+            
+                ,#{item.email}	/* 邮箱 */
             
                 ,#{item.yn}	/* 数据状态 0-无效 1-有效 */
             
@@ -165,6 +298,34 @@
         
             <if test="username != null">
                 ,username = #username /* 用户名 */
+            </if>
+        
+            <if test="password != null">
+                ,password = #password /* 密码 */
+            </if>
+        
+            <if test="phone != null">
+                ,phone = #phone /* 手机号 */
+            </if>
+        
+            <if test="address != null">
+                ,address = #address /* 地址 */
+            </if>
+        
+            <if test="sex != null">
+                ,sex = #sex /* 用户性别  0-未知   1-男  2-女 */
+            </if>
+        
+            <if test="age != null">
+                ,age = #age /* 用户年龄 */
+            </if>
+        
+            <if test="birth != null">
+                ,birth = #birth /* 生日 */
+            </if>
+        
+            <if test="email != null">
+                ,email = #email /* 邮箱 */
             </if>
         
             <if test="yn != null">
