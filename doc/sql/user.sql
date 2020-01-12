@@ -10,7 +10,7 @@ CREATE TABLE user (
    address       VARCHAR(100)    NOT NULL       DEFAULT ''             COMMENT '地址',
    sex           TINYINT(4)      NOT NULL       DEFAULT '0'            COMMENT '用户性别  0-未知   1-男  2-女',
    age           TINYINT(8)      NOT NULL       DEFAULT '0'            COMMENT '用户年龄',
-   birth         DATETIME        NOT NULL       DEFAULT '0000-00-00 00:00:00' COMMENT '生日',
+   birth         DATETIME        NOT NULL       											 COMMENT '生日',
    email         VARCHAR(50)     NOT NULL       DEFAULT ''             COMMENT '邮箱',
    yn            TINYINT(4)      NOT NULL       DEFAULT  1             COMMENT '数据状态 0-无效 1-有效',
    created_time  DATETIME        NOT NULL       DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
