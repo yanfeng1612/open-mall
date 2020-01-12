@@ -1,5 +1,6 @@
 {
     "backTheme" : "SpringCloud",
+    "auto" : true,
     "frontTheme" : "None",
     "projectName" : "open-mall-user",
     "projectAdminName" : "",

@@ -1,4 +1,4 @@
-package com.openmall.user.pojo;
+package com.openmall.user.domain.auto;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import lombok.Data;
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-09
+ * @date 2020-01-12
  **/
  @Data
 public class UserQuery extends Query {

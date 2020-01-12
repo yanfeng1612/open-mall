@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.openmall.user.dao.UserMapper">
+<mapper namespace="com.openmall.user.dao.auto.UserMapper">
 
-    <resultMap id="baseResultMap" type="com.openmall.user.pojo.User">
+    <resultMap id="baseResultMap" type="com.openmall.user.domain.auto.User">
+    
         <result property="id" column="id" />
         <result property="username" column="username" />
         <result property="password" column="password" />
@@ -211,7 +212,7 @@
         </trim>
     </sql>
 
-    <insert id="insert" parameterType="com.openmall.user.pojo.User"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+    <insert id="insert" parameterType="User"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         /* 用户表 */
         INSERT  INTO  user
         (
@@ -287,7 +288,7 @@
         DELETE FROM user WHERE id = #{id}
     </delete>
 
-    <update id="update" parameterType="com.openmall.user.pojo.User" >
+    <update id="update" parameterType="User" >
         UPDATE  user
         /* 用户表 */
         <trim prefix="SET" prefixOverrides=",">
@@ -337,7 +338,7 @@
         id = #{id}		/* id */
     </update>
 
-    <select id="findById" parameterType="com.openmall.user.pojo.User"  resultMap="baseResultMap">
+    <select id="findById" parameterType="User"  resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
         FROM   user  /* 用户表 */

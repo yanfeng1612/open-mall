@@ -6,7 +6,7 @@ import com.openmall.user.utils.CodeEnum;
 /**
  * 服务请求状态API枚举
  * @author model-driven
- * @date 2020-01-09
+ * @date 2020-01-12
  **/
 public class CodeConverter {
 
