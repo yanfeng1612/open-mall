@@ -14,7 +14,7 @@ spring:
 
   datasource:
     druid:
-      url: jdbc:mysql://127.0.0.1:3306/open_mall_user?serverTimezone=GMT%2B8&characterEncoding=utf-8&useUnicode=true&autoReconnect=true&connectTimeout=30000&initialTimeout=1&enableQueryTimeouts=true&socketTimeout=2000&allowMultiQueries=true
+      url: jdbc:mysql://127.0.0.1:3306/open_mall_product?serverTimezone=GMT%2B8&characterEncoding=utf-8&useUnicode=true&autoReconnect=true&connectTimeout=30000&initialTimeout=1&enableQueryTimeouts=true&socketTimeout=2000&allowMultiQueries=true
       username: root
       password: 111111
       initial-size: 10
@@ -25,6 +25,5 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/**/*.xml
-  type-aliases-package: com.openmall.user.domain
 
 spring.resources.static-locations: classpath:static/,file:static/

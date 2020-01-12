@@ -89,7 +89,7 @@
                 sData["pageSize"] = this.pageInfo.pageSize;
                 sData["pageNo"] = this.pageInfo.curPage;
                 requestData({
-                    "url": "/api/user/list?pageSize=" + self.pageInfo.pageSize + "&pageNo=" + self.pageInfo.curPage,
+                    "url": "/api/open-mall-user/user/list?pageSize=" + self.pageInfo.pageSize + "&pageNo=" + self.pageInfo.curPage,
                     "data": this.searchData
                     , "callback": function (response) {
                         self.tableData = response.values;

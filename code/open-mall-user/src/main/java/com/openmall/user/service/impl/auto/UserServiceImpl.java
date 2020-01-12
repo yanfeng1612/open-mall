@@ -1,4 +1,4 @@
-package com.openmall.user.service.impl;
+package com.openmall.user.service.impl.auto;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -12,15 +12,16 @@ import com.alibaba.fastjson.JSON;
 import org.springframework.dao.DuplicateKeyException;
 
 import com.openmall.user.utils.*;
-import com.openmall.user.pojo.User;
-import com.openmall.user.pojo.UserQuery;
-import com.openmall.user.manager.UserManager;
-import com.openmall.user.service.UserService;
+
+import com.openmall.user.domain.auto.User;
+import com.openmall.user.domain.auto.UserQuery;
+import com.openmall.user.manager.auto.UserManager;
+import com.openmall.user.service.auto.UserService;
 
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-09
+ * @date 2020-01-12
  **/
 @Service("userService")
 public class UserServiceImpl implements UserService{

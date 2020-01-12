@@ -1,4 +1,4 @@
-package com.openmall.user.service;
+package com.openmall.user.service.auto;
 
 import java.util.List;
 import java.util.Date;
@@ -6,20 +6,15 @@ import java.math.BigDecimal;
 
 import lombok.Data;
 
-import com.openmall.user.utils.BasicResult;
-import com.openmall.user.utils.GenericResult;
-import com.openmall.user.utils.Query;
-import com.openmall.user.utils.PageQuery;
-import com.openmall.user.utils.IdPageQuery;
-import com.openmall.user.utils.ListResult;
-import com.openmall.user.utils.PageListResult;
-import com.openmall.user.pojo.User;
-import com.openmall.user.pojo.UserQuery;
+import com.openmall.user.utils.*;
+
+import com.openmall.user.domain.auto.User;
+import com.openmall.user.domain.auto.UserQuery;
 
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-09
+ * @date 2020-01-12
  **/
 public interface UserService {
 

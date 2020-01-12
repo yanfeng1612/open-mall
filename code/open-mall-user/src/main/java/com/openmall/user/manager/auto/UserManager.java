@@ -1,14 +1,15 @@
-package com.openmall.user.manager;
+package com.openmall.user.manager.auto;
 
 import java.util.List;
-import com.openmall.user.pojo.User;
-import com.openmall.user.pojo.UserQuery;
+
+import com.openmall.user.domain.auto.User;
+import com.openmall.user.domain.auto.UserQuery;
 import com.openmall.user.utils.*;
 
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-09
+ * @date 2020-01-12
  **/
 public interface UserManager {
 

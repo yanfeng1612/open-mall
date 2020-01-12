@@ -1,7 +1,6 @@
-package com.openmall.user.controller;
+package com.openmall.user.controller.auto;
 
 import java.util.Date;
-import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,21 +8,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
 
 import com.openmall.user.utils.*;
 
-import com.openmall.user.pojo.User;
-import com.openmall.user.pojo.UserQuery;
-import com.openmall.user.service.UserService;
+import com.openmall.user.domain.auto.User;
+import com.openmall.user.domain.auto.UserQuery;
+import com.openmall.user.service.auto.UserService;
 
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-09
+ * @date 2020-01-12
  **/
 @RestController
 @RequestMapping(value = "/user", produces = "application/json; charset=utf-8")
@@ -100,7 +98,7 @@ public class UserController {
      * 查询数据详情
      */
     @RequestMapping(value = "/detail", method = {RequestMethod.POST,RequestMethod.GET})
-    public Response<User> getUserById(User user) {
+    public Response<User> getUserById(@RequestBody User user) {
         LOG.info("查询参数 {}",user) ;
         Response<User> response = new Response<>();
         try {

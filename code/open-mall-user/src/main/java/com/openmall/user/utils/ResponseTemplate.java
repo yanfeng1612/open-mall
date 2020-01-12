@@ -5,7 +5,7 @@ import com.openmall.user.utils.Response;
 /**
  * 服务请求状态API枚举
  * @author model-driven
- * @date 2020-01-09
+ * @date 2020-01-12
  **/
 public enum ResponseTemplate {
 

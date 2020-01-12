@@ -1,4 +1,4 @@
-package com.openmall.user.manager.impl;
+package com.openmall.user.manager.impl.auto;
 
 import java.util.List;
 import java.util.Date;
@@ -10,16 +10,17 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Component;
 import com.alibaba.fastjson.JSON;
 
-import com.openmall.user.pojo.User;
-import com.openmall.user.pojo.UserQuery;
-import com.openmall.user.dao.UserMapper;
-import com.openmall.user.manager.UserManager;
+import com.openmall.user.domain.auto.User;
+import com.openmall.user.domain.auto.UserQuery;
+import com.openmall.user.dao.auto.UserMapper;
+import com.openmall.user.manager.auto.UserManager;
+
 import com.openmall.user.utils.*;
 
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-09
+ * @date 2020-01-12
  **/
 @Component("userManager")
 public class UserManagerImpl implements UserManager {
