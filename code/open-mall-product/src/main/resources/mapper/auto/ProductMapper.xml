@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.openmall.product.dao.auto.ProductMapper">
+
+    <resultMap id="baseResultMap" type="com.openmall.product.domain.auto.Product">
+    
+        <result property="id" column="id" />
+        <result property="productName" column="product_name" />
+        <result property="unit" column="unit" />
+        <result property="categroyId" column="categroy_id" />
+        <result property="categroyName" column="categroy_name" />
+        <result property="brandId" column="brand_id" />
+        <result property="brandName" column="brand_name" />
+        <result property="description" column="description" />
+        <result property="imgePath" column="imgePath" />
+        <result property="serialNumber" column="serial_number" />
+        <result property="price" column="price" />
+        <result property="marketPrice" column="market_price" />
+        <result property="stock" column="stock" />
+        <result property="weight" column="weight" />
+        <result property="rank" column="rank" />
+        <result property="yn" column="yn" />
+        <result property="createdTime" column="created_time" />
+        <result property="modifiedTime" column="modified_time" />
+        
+    </resultMap>
+
+    <sql id="queryColumns">
+        <trim prefixOverrides=",">
+        
+            ,id	/* 自动编号 */
+        
+            ,product_name	/* 商品名称 */
+        
+            ,unit	/* 商品单位 */
+        
+            ,categroy_id	/* 商品分类id */
+        
+            ,categroy_name	/* 商品分类名称 */
+        
+            ,brand_id	/* 商品品牌id */
+        
+            ,brand_name	/* 商品品牌名称 */
+        
+            ,description	/* 描述 */
+        
+            ,imgePath	/* 图片路径 */
+        
+            ,serial_number	/* 货号 */
+        
+            ,price	/* 售价 */
+        
+            ,market_price	/* 市场价 */
+        
+            ,stock	/* 库存 */
+        
+            ,weight	/* 重量（单位克） */
+        
+            ,rank	/* 排序 */
+        
+            ,yn	/* 数据状态 0-无效 1-有效 */
+        
+            ,created_time	/* 创建时间 */
+        
+            ,modified_time	/* 修改时间 */
+        
+        </trim>
+    </sql>
+
+    <sql id="wherecontation">
+        <if test="query!= null">
+        
+            <if test="query.id != null">
+                and id = #{query.id} /* 自动编号 */
+            </if>
+        
+            <if test="query.productName != null and query.productName != ''">
+                and product_name = #{query.productName} /* 商品名称 */
+            </if>
+        
+            <if test="query.unit != null and query.unit != ''">
+                and unit = #{query.unit} /* 商品单位 */
+            </if>
+        
+            <if test="query.categroyId != null">
+                and categroy_id = #{query.categroyId} /* 商品分类id */
+            </if>
+        
+            <if test="query.categroyName != null and query.categroyName != ''">
+                and categroy_name = #{query.categroyName} /* 商品分类名称 */
+            </if>
+        
+            <if test="query.brandId != null">
+                and brand_id = #{query.brandId} /* 商品品牌id */
+            </if>
+        
+            <if test="query.brandName != null and query.brandName != ''">
+                and brand_name = #{query.brandName} /* 商品品牌名称 */
+            </if>
+        
+            <if test="query.description != null and query.description != ''">
+                and description = #{query.description} /* 描述 */
+            </if>
+        
+            <if test="query.imgePath != null and query.imgePath != ''">
+                and imgePath = #{query.imgePath} /* 图片路径 */
+            </if>
+        
+            <if test="query.serialNumber != null and query.serialNumber != ''">
+                and serial_number = #{query.serialNumber} /* 货号 */
+            </if>
+        
+            <if test="query.price != null">
+                and price = #{query.price} /* 售价 */
+            </if>
+        
+            <if test="query.marketPrice != null">
+                and market_price = #{query.marketPrice} /* 市场价 */
+            </if>
+        
+            <if test="query.stock != null">
+                and stock = #{query.stock} /* 库存 */
+            </if>
+        
+            <if test="query.weight != null">
+                and weight = #{query.weight} /* 重量（单位克） */
+            </if>
+        
+            <if test="query.rank != null">
+                and rank = #{query.rank} /* 排序 */
+            </if>
+        
+            <if test="query.yn != null">
+                and yn = #{query.yn} /* 数据状态 0-无效 1-有效 */
+            </if>
+        
+            <if test="query.createdTime != null">
+                and created_time = #{query.createdTime} /* 创建时间 */
+            </if>
+        
+            <if test="query.modifiedTime != null">
+                and modified_time = #{query.modifiedTime} /* 修改时间 */
+            </if>
+        
+        </if>
+    </sql>
+
+    <sql id="getInsertField">
+        <trim prefixOverrides=",">
+        
+        <if test="id != null">
+            ,id /* 自动编号 */
+        </if>
+        
+        <if test="productName != null">
+            ,product_name /* 商品名称 */
+        </if>
+        
+        <if test="unit != null">
+            ,unit /* 商品单位 */
+        </if>
+        
+        <if test="categroyId != null">
+            ,categroy_id /* 商品分类id */
+        </if>
+        
+        <if test="categroyName != null">
+            ,categroy_name /* 商品分类名称 */
+        </if>
+        
+        <if test="brandId != null">
+            ,brand_id /* 商品品牌id */
+        </if>
+        
+        <if test="brandName != null">
+            ,brand_name /* 商品品牌名称 */
+        </if>
+        
+        <if test="description != null">
+            ,description /* 描述 */
+        </if>
+        
+        <if test="imgePath != null">
+            ,imgePath /* 图片路径 */
+        </if>
+        
+        <if test="serialNumber != null">
+            ,serial_number /* 货号 */
+        </if>
+        
+        <if test="price != null">
+            ,price /* 售价 */
+        </if>
+        
+        <if test="marketPrice != null">
+            ,market_price /* 市场价 */
+        </if>
+        
+        <if test="stock != null">
+            ,stock /* 库存 */
+        </if>
+        
+        <if test="weight != null">
+            ,weight /* 重量（单位克） */
+        </if>
+        
+        <if test="rank != null">
+            ,rank /* 排序 */
+        </if>
+        
+        <if test="yn != null">
+            ,yn /* 数据状态 0-无效 1-有效 */
+        </if>
+        
+        <if test="createdTime != null">
+            ,created_time /* 创建时间 */
+        </if>
+        
+        <if test="modifiedTime != null">
+            ,modified_time /* 修改时间 */
+        </if>
+        
+        </trim>
+    </sql>
+
+    <sql id="getInsertFieldValue">
+        <trim prefixOverrides=",">
+        
+        <if test="id != null">
+            ,#id /* 自动编号 */
+        </if>
+        
+        <if test="productName != null">
+            ,#productName /* 商品名称 */
+        </if>
+        
+        <if test="unit != null">
+            ,#unit /* 商品单位 */
+        </if>
+        
+        <if test="categroyId != null">
+            ,#categroyId /* 商品分类id */
+        </if>
+        
+        <if test="categroyName != null">
+            ,#categroyName /* 商品分类名称 */
+        </if>
+        
+        <if test="brandId != null">
+            ,#brandId /* 商品品牌id */
+        </if>
+        
+        <if test="brandName != null">
+            ,#brandName /* 商品品牌名称 */
+        </if>
+        
+        <if test="description != null">
+            ,#description /* 描述 */
+        </if>
+        
+        <if test="imgePath != null">
+            ,#imgePath /* 图片路径 */
+        </if>
+        
+        <if test="serialNumber != null">
+            ,#serialNumber /* 货号 */
+        </if>
+        
+        <if test="price != null">
+            ,#price /* 售价 */
+        </if>
+        
+        <if test="marketPrice != null">
+            ,#marketPrice /* 市场价 */
+        </if>
+        
+        <if test="stock != null">
+            ,#stock /* 库存 */
+        </if>
+        
+        <if test="weight != null">
+            ,#weight /* 重量（单位克） */
+        </if>
+        
+        <if test="rank != null">
+            ,#rank /* 排序 */
+        </if>
+        
+        <if test="yn != null">
+            ,#yn /* 数据状态 0-无效 1-有效 */
+        </if>
+        
+        <if test="createdTime != null">
+            ,#createdTime /* 创建时间 */
+        </if>
+        
+        <if test="modifiedTime != null">
+            ,#modifiedTime /* 修改时间 */
+        </if>
+        
+        </trim>
+    </sql>
+
+    <insert id="insert" parameterType="Product"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        /* 商品基本属性表 */
+        INSERT  INTO  product
+        (
+            <include refid="getInsertField" />
+        )
+        VALUES (
+            <include refid="getInsertFieldValue" />
+        )
+    </insert>
+
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT  INTO  product
+        <trim prefix="(" suffix=")" prefixOverrides=",">
+        
+            ,id	/* 自动编号 */
+        
+            ,product_name	/* 商品名称 */
+        
+            ,unit	/* 商品单位 */
+        
+            ,categroy_id	/* 商品分类id */
+        
+            ,categroy_name	/* 商品分类名称 */
+        
+            ,brand_id	/* 商品品牌id */
+        
+            ,brand_name	/* 商品品牌名称 */
+        
+            ,description	/* 描述 */
+        
+            ,imgePath	/* 图片路径 */
+        
+            ,serial_number	/* 货号 */
+        
+            ,price	/* 售价 */
+        
+            ,market_price	/* 市场价 */
+        
+            ,stock	/* 库存 */
+        
+            ,weight	/* 重量（单位克） */
+        
+            ,rank	/* 排序 */
+        
+            ,yn	/* 数据状态 0-无效 1-有效 */
+        
+            ,created_time	/* 创建时间 */
+        
+            ,modified_time	/* 修改时间 */
+        
+        </trim>
+        VALUES
+        <foreach collection="list" item="item" index="index" separator="," >
+            <trim prefix="(" suffix=")" prefixOverrides=",">
+            
+                ,#{item.id}	/* 自动编号 */
+            
+                ,#{item.productName}	/* 商品名称 */
+            
+                ,#{item.unit}	/* 商品单位 */
+            
+                ,#{item.categroyId}	/* 商品分类id */
+            
+                ,#{item.categroyName}	/* 商品分类名称 */
+            
+                ,#{item.brandId}	/* 商品品牌id */
+            
+                ,#{item.brandName}	/* 商品品牌名称 */
+            
+                ,#{item.description}	/* 描述 */
+            
+                ,#{item.imgePath}	/* 图片路径 */
+            
+                ,#{item.serialNumber}	/* 货号 */
+            
+                ,#{item.price}	/* 售价 */
+            
+                ,#{item.marketPrice}	/* 市场价 */
+            
+                ,#{item.stock}	/* 库存 */
+            
+                ,#{item.weight}	/* 重量（单位克） */
+            
+                ,#{item.rank}	/* 排序 */
+            
+                ,#{item.yn}	/* 数据状态 0-无效 1-有效 */
+            
+                ,#{item.createdTime}	/* 创建时间 */
+            
+                ,#{item.modifiedTime}	/* 修改时间 */
+            
+            </trim>
+        </foreach>
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        DELETE FROM product WHERE id = #{id}
+    </delete>
+
+    <update id="update" parameterType="Product" >
+        UPDATE  product
+        /* 商品基本属性表 */
+        <trim prefix="SET" prefixOverrides=",">
+        
+            <if test="id != null">
+                ,id = #id /* 自动编号 */
+            </if>
+        
+            <if test="productName != null">
+                ,product_name = #productName /* 商品名称 */
+            </if>
+        
+            <if test="unit != null">
+                ,unit = #unit /* 商品单位 */
+            </if>
+        
+            <if test="categroyId != null">
+                ,categroy_id = #categroyId /* 商品分类id */
+            </if>
+        
+            <if test="categroyName != null">
+                ,categroy_name = #categroyName /* 商品分类名称 */
+            </if>
+        
+            <if test="brandId != null">
+                ,brand_id = #brandId /* 商品品牌id */
+            </if>
+        
+            <if test="brandName != null">
+                ,brand_name = #brandName /* 商品品牌名称 */
+            </if>
+        
+            <if test="description != null">
+                ,description = #description /* 描述 */
+            </if>
+        
+            <if test="imgePath != null">
+                ,imgePath = #imgePath /* 图片路径 */
+            </if>
+        
+            <if test="serialNumber != null">
+                ,serial_number = #serialNumber /* 货号 */
+            </if>
+        
+            <if test="price != null">
+                ,price = #price /* 售价 */
+            </if>
+        
+            <if test="marketPrice != null">
+                ,market_price = #marketPrice /* 市场价 */
+            </if>
+        
+            <if test="stock != null">
+                ,stock = #stock /* 库存 */
+            </if>
+        
+            <if test="weight != null">
+                ,weight = #weight /* 重量（单位克） */
+            </if>
+        
+            <if test="rank != null">
+                ,rank = #rank /* 排序 */
+            </if>
+        
+            <if test="yn != null">
+                ,yn = #yn /* 数据状态 0-无效 1-有效 */
+            </if>
+        
+        </trim>
+        WHERE
+        id = #{id}		/* id */
+    </update>
+
+    <select id="findById" parameterType="Product"  resultMap="baseResultMap">
+        SELECT
+        <include refid="queryColumns" />
+        FROM   product  /* 商品基本属性表 */
+        WHERE
+        id = #{id}		/* id */
+    </select>
+
+    <select id="getAllList" parameterType="com.openmall.product.utils.Query"  resultMap="baseResultMap">
+        SELECT
+        <include refid="queryColumns" />
+        FROM    product  /* 商品基本属性表 */
+        WHERE 1 = 1
+        <include refid="wherecontation"/>
+        ORDER BY id DESC
+    </select>
+
+    <select id="getPagenationList" parameterType="com.openmall.product.utils.PageQueryWrapper" resultMap="baseResultMap">
+        SELECT
+        <include refid="queryColumns" />
+        FROM   product /*  商品基本属性表 */
+        WHERE 1=1
+        <include refid="wherecontation"/>
+        ORDER BY id DESC
+        LIMIT  #{startRow} ,#{endRow}
+    </select>
+
+    <select id="getPagenationListById" parameterType="com.openmall.product.utils.IdPageQuery" resultMap="baseResultMap">
+        SELECT
+        <include refid="queryColumns" />
+        FROM   product /*  商品基本属性表 */
+        WHERE id > #{minId}
+        <include refid="wherecontation"/>
+        ORDER BY id ASC
+        LIMIT #{pageSize}
+    </select>
+
+    <select id="getCount" parameterType="com.openmall.product.utils.PageQuery" resultType="java.lang.Long">
+        SELECT COUNT(*)  FROM  product  /*  商品基本属性表 */
+        WHERE 1 = 1
+        <include refid="wherecontation"/>
+    </select>
+
+    <select id="getCountBy" parameterType="com.openmall.product.utils.IdPageQuery" resultType="java.lang.Long">
+        SELECT count(1)  FROM  product  /*  商品基本属性表 */
+        WHERE 1 = 1
+        <include refid="wherecontation"/>
+    </select>
+
+    <select id="getTotalCount" parameterType="com.openmall.product.utils.Query" resultType="java.lang.Long">
+        SELECT count(1)  FROM  product /* 商品基本属性表 */
+        WHERE 1=1
+        <include refid="wherecontation"/>
+    </select>
+
+</mapper>
