@@ -20,7 +20,7 @@ import com.openmall.product.utils.*;
 /**
  * 商品分类表
  * @author model-driven
- * @date 2020-01-12
+ * @date 2020-01-14
  **/
 @Component("productCategoryManager")
 public class ProductCategoryManagerImpl implements ProductCategoryManager {

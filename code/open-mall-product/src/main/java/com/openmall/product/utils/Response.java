@@ -7,7 +7,7 @@ import com.openmall.product.utils.APIEmRequestStatus;
 /**
  * 服务请求状态API枚举
  * @author model-driven
- * @date 2020-01-12
+ * @date 2020-01-14
  **/
 public class Response<T> implements Serializable {
 

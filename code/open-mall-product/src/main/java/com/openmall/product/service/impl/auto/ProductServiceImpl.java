@@ -21,7 +21,7 @@ import com.openmall.product.service.auto.ProductService;
 /**
  * 商品基本属性表
  * @author model-driven
- * @date 2020-01-12
+ * @date 2020-01-14
  **/
 @Service("productService")
 public class ProductServiceImpl implements ProductService{

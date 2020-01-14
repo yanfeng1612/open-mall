@@ -8,7 +8,7 @@ import lombok.Data;
 /**
  * 商品分类表
  * @author model-driven
- * @date 2020-01-12
+ * @date 2020-01-14
  **/
 @Data
 public class ProductCategory implements java.io.Serializable {

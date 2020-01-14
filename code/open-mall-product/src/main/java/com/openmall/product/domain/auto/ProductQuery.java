@@ -12,7 +12,7 @@ import lombok.Data;
 /**
  * 商品基本属性表
  * @author model-driven
- * @date 2020-01-12
+ * @date 2020-01-14
  **/
  @Data
 public class ProductQuery extends Query {
