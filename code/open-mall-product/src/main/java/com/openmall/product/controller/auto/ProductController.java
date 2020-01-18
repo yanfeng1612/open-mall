@@ -21,7 +21,7 @@ import com.openmall.product.service.auto.ProductService;
 /**
  * 商品基本属性表
  * @author model-driven
- * @date 2020-01-14
+ * @date 2020-01-18
  **/
 @RestController
 @RequestMapping(value = "/product", produces = "application/json; charset=utf-8")

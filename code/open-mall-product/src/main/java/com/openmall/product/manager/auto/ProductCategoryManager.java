@@ -9,7 +9,7 @@ import com.openmall.product.utils.*;
 /**
  * 商品分类表
  * @author model-driven
- * @date 2020-01-14
+ * @date 2020-01-18
  **/
 public interface ProductCategoryManager {
 
