@@ -1,0 +1,26 @@
+{
+    "backTheme" : "SpringCloud",
+    "auto" : true,
+    "frontTheme" : "None",
+    "projectName" : "open-mall-trade",
+    "projectAdminName" : "",
+    "packageName" : "com.openmall.trade",
+    "dataBaseName": "open_mall_trade",
+    "DatabaseIp"  : "127.0.0.1",
+    "DatabasePort":  3306,
+    "DatabaseUsername": "root",
+    "DatabasePassword": "111111",
+    "exportPath": "D:\\01.Project\\open-mall\\code\\",
+    "firstInit" : false,
+    "tableConfigList": [
+        {
+            "tableName": "user",
+            "singleQueryList": [
+                "username"
+            ],
+            "inListQuery": [
+                "created_time"
+            ]
+        }
+    ]
+}
