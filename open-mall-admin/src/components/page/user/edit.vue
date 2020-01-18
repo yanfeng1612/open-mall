@@ -138,7 +138,7 @@
                 var self = this;
                 if (this.$route.query.id != null) {
                     requestData({
-                        "url": "/api/user/detail",
+                        "url": "/api/open-mall-user/user/detail",
                         "data": {id: this.$route.query.id},
                         "callback": function (redata) {
                             self.formData = redata;
@@ -152,7 +152,7 @@
                 this.$refs["formData"].validate((valid) => {
                     if (valid) {
                         requestData({
-                            "url": "/api/user/updateById",
+                            "url": "/api/oper-mall-user/user/updateById",
                             "data": this.formData
                             , "callback": function (redata) {
                                 self.$message({

@@ -136,7 +136,7 @@
                 }
                 var reqData = {"id":this.item.id};
                 requestData({
-                    "url": "/api/user/detail",
+                    "url": "/api/open-mall-user/user/detail",
                     "data":reqData,
                     "callback": function (redata) {
                         if(redata == null || redata == undefined) {
