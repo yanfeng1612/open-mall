@@ -45,6 +45,102 @@ export default new Router({
                     component: () => import(/* webpackChunkName: "table" */ '../components/page/user/detail.vue'),
                     meta: { title: '用户表' }
                 },
+
+                {
+                    path: '/productList',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/product/list.vue'),
+                    meta: { title: '商品基本属性表' }
+                },
+                {
+                    path: '/productEdit',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/product/edit.vue'),
+                    meta: { title: '商品基本属性表' }
+                },
+                {
+                    path: '/productDetail',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/product/detail.vue'),
+                    meta: { title: '商品基本属性表' }
+                },
+
+                {
+                    path: '/productBrandList',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/productBrand/list.vue'),
+                    meta: { title: '商品品牌表' }
+                },
+                {
+                    path: '/productBrandEdit',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/productBrand/edit.vue'),
+                    meta: { title: '商品品牌表' }
+                },
+                {
+                    path: '/productBrandDetail',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/productBrand/detail.vue'),
+                    meta: { title: '商品品牌表' }
+                },
+
+                {
+                    path: '/productCategoryList',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/productCategory/list.vue'),
+                    meta: { title: '商品分类表' }
+                },
+                {
+                    path: '/productCategoryEdit',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/productCategory/edit.vue'),
+                    meta: { title: '商品分类表' }
+                },
+                {
+                    path: '/productCategoryDetail',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/productCategory/detail.vue'),
+                    meta: { title: '商品分类表' }
+                },
+
+                {
+                    path: '/orderCartList',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/orderCart/list.vue'),
+                    meta: { title: '订单购物车' }
+                },
+                {
+                    path: '/orderCartEdit',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/orderCart/edit.vue'),
+                    meta: { title: '订单购物车' }
+                },
+                {
+                    path: '/orderCartDetail',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/orderCart/detail.vue'),
+                    meta: { title: '订单购物车' }
+                },
+
+                {
+                    path: '/orderDetailList',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/orderDetail/list.vue'),
+                    meta: { title: '订单明细表' }
+                },
+                {
+                    path: '/orderDetailEdit',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/orderDetail/edit.vue'),
+                    meta: { title: '订单明细表' }
+                },
+                {
+                    path: '/orderDetailDetail',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/orderDetail/detail.vue'),
+                    meta: { title: '订单明细表' }
+                },
+
+                {
+                    path: '/orderMasterList',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/orderMaster/list.vue'),
+                    meta: { title: '订单master表' }
+                },
+                {
+                    path: '/orderMasterEdit',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/orderMaster/edit.vue'),
+                    meta: { title: '订单master表' }
+                },
+                {
+                    path: '/orderMasterDetail',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/orderMaster/detail.vue'),
+                    meta: { title: '订单master表' }
+                },
                 
                 {
                     path: '/tabs',

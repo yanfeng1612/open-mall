@@ -408,67 +408,67 @@
         <trim prefix="SET" prefixOverrides=",">
         
             <if test="id != null">
-                ,id = #id /* 自动编号 */
+                ,id = #{id} /* 自动编号 */
             </if>
         
             <if test="productName != null">
-                ,product_name = #productName /* 商品名称 */
+                ,product_name = #{productName} /* 商品名称 */
             </if>
         
             <if test="unit != null">
-                ,unit = #unit /* 商品单位 */
+                ,unit = #{unit} /* 商品单位 */
             </if>
         
             <if test="categroyId != null">
-                ,categroy_id = #categroyId /* 商品分类id */
+                ,categroy_id = #{categroyId} /* 商品分类id */
             </if>
         
             <if test="categroyName != null">
-                ,categroy_name = #categroyName /* 商品分类名称 */
+                ,categroy_name = #{categroyName} /* 商品分类名称 */
             </if>
         
             <if test="brandId != null">
-                ,brand_id = #brandId /* 商品品牌id */
+                ,brand_id = #{brandId} /* 商品品牌id */
             </if>
         
             <if test="brandName != null">
-                ,brand_name = #brandName /* 商品品牌名称 */
+                ,brand_name = #{brandName} /* 商品品牌名称 */
             </if>
         
             <if test="description != null">
-                ,description = #description /* 描述 */
+                ,description = #{description} /* 描述 */
             </if>
         
             <if test="imgePath != null">
-                ,imgePath = #imgePath /* 图片路径 */
+                ,imgePath = #{imgePath} /* 图片路径 */
             </if>
         
             <if test="serialNumber != null">
-                ,serial_number = #serialNumber /* 货号 */
+                ,serial_number = #{serialNumber} /* 货号 */
             </if>
         
             <if test="price != null">
-                ,price = #price /* 售价 */
+                ,price = #{price} /* 售价 */
             </if>
         
             <if test="marketPrice != null">
-                ,market_price = #marketPrice /* 市场价 */
+                ,market_price = #{marketPrice} /* 市场价 */
             </if>
         
             <if test="stock != null">
-                ,stock = #stock /* 库存 */
+                ,stock = #{stock} /* 库存 */
             </if>
         
             <if test="weight != null">
-                ,weight = #weight /* 重量（单位克） */
+                ,weight = #{weight} /* 重量（单位克） */
             </if>
         
             <if test="rank != null">
-                ,rank = #rank /* 排序 */
+                ,rank = #{rank} /* 排序 */
             </if>
         
             <if test="yn != null">
-                ,yn = #yn /* 数据状态 0-无效 1-有效 */
+                ,yn = #{yn} /* 数据状态 0-无效 1-有效 */
             </if>
         
         </trim>

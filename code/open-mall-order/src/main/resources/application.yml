@@ -1,0 +1,30 @@
+server:
+  port: 9003
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:8761/eureka/
+
+
+spring:
+  application:
+    name: open-mall-order
+
+  datasource:
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/open_mall_order?serverTimezone=GMT%2B8&characterEncoding=utf-8&useUnicode=true&autoReconnect=true&connectTimeout=30000&initialTimeout=1&enableQueryTimeouts=true&socketTimeout=2000&allowMultiQueries=true
+      username: root
+      password: 111111
+      initial-size: 10
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.openmall.order.domain
+
+spring.resources.static-locations: classpath:static/,file:static/

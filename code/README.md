@@ -10,4 +10,4 @@
 | open-mall-gateway-admin | 后台网关 | 9000 | |
 | open-mall-user | 用户中心 | 9001 | |
 | open-mall-product | 商品中心 | 9002 | |
-| open-mall-trade | 交易中心 | 9003 | |
+| open-mall-trade | 订单中心 | 9003 | |

@@ -12,7 +12,7 @@ import lombok.Data;
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-12
+ * @date 2020-01-18
  **/
  @Data
 public class UserQuery extends Query {

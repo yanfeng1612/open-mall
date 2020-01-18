@@ -68,19 +68,54 @@ export default {
                 },
                 
                 {
-                    icon: 'el-icon-lx-cascades',
-                    index: 'userList',
-                    title: '用户表'
-                },
-                
-                {
                     icon: 'el-icon-lx-copy',
                     index: 'tabs',
                     title: 'tab选项卡'
                 },
                 {
                     icon: 'el-icon-lx-calendar',
+                    index: '1',
+                    title: '用户',
+                    subs: [
+                        {
+                            index: 'userList',
+                            title: '用户表'
+                        }
+                    ]
+                },
+                {
+                    icon: 'el-icon-lx-calendar',
+                    index: '2',
+                    title: '商品',
+                    subs: [
+                        {
+                            index: 'productBrandList',
+                            title: '商品品牌表'
+                        },
+                        {
+                            index: 'productCategoryList',
+                            title: '商品分类表'
+                        },
+                        {
+                            index: 'productList',
+                            title: '商品基本属性表'
+                        }
+                    ]
+                },
+                {
+                    icon: 'el-icon-lx-calendar',
                     index: '3',
+                    title: '订单',
+                    subs: [
+                        {
+                            index: 'orderMasterList',
+                            title: '订单列表'
+                        }
+                    ]
+                },
+                {
+                    icon: 'el-icon-lx-calendar',
+                    index: '4',
                     title: '表单相关',
                     subs: [
                         {

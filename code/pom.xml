@@ -34,6 +34,7 @@
 		<module>open-mall-api</module>
 		<module>open-mall-user</module>
 		<module>open-mall-product</module>
+		<module>open-mall-order</module>
 	</modules>
 
 	<dependencyManagement>

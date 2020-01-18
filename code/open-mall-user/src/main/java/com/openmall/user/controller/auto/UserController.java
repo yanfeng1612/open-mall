@@ -21,7 +21,7 @@ import com.openmall.user.service.auto.UserService;
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-12
+ * @date 2020-01-18
  **/
 @RestController
 @RequestMapping(value = "/user", produces = "application/json; charset=utf-8")

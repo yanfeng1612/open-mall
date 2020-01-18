@@ -294,43 +294,43 @@
         <trim prefix="SET" prefixOverrides=",">
         
             <if test="id != null">
-                ,id = #id /* 自动编号 */
+                ,id = #{id} /* 自动编号 */
             </if>
         
             <if test="username != null">
-                ,username = #username /* 用户名 */
+                ,username = #{username} /* 用户名 */
             </if>
         
             <if test="password != null">
-                ,password = #password /* 密码 */
+                ,password = #{password} /* 密码 */
             </if>
         
             <if test="phone != null">
-                ,phone = #phone /* 手机号 */
+                ,phone = #{phone} /* 手机号 */
             </if>
         
             <if test="address != null">
-                ,address = #address /* 地址 */
+                ,address = #{address} /* 地址 */
             </if>
         
             <if test="sex != null">
-                ,sex = #sex /* 用户性别  0-未知   1-男  2-女 */
+                ,sex = #{sex} /* 用户性别  0-未知   1-男  2-女 */
             </if>
         
             <if test="age != null">
-                ,age = #age /* 用户年龄 */
+                ,age = #{age} /* 用户年龄 */
             </if>
         
             <if test="birth != null">
-                ,birth = #birth /* 生日 */
+                ,birth = #{birth} /* 生日 */
             </if>
         
             <if test="email != null">
-                ,email = #email /* 邮箱 */
+                ,email = #{email} /* 邮箱 */
             </if>
         
             <if test="yn != null">
-                ,yn = #yn /* 数据状态 0-无效 1-有效 */
+                ,yn = #{yn} /* 数据状态 0-无效 1-有效 */
             </if>
         
         </trim>

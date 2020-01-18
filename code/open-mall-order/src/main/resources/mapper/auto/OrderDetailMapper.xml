@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.openmall.order.dao.auto.OrderDetailMapper">
+
+    <resultMap id="baseResultMap" type="com.openmall.order.domain.auto.OrderDetail">
+    
+        <result property="id" column="id" />
+        <result property="orderKey" column="order_key" />
+        <result property="userId" column="user_id" />
+        <result property="userName" column="user_name" />
+        <result property="sex" column="sex" />
+        <result property="phone" column="phone" />
+        <result property="productId" column="product_id" />
+        <result property="productName" column="product_name" />
+        <result property="unit" column="unit" />
+        <result property="categroyId" column="categroy_id" />
+        <result property="categroyName" column="categroy_name" />
+        <result property="brandId" column="brand_id" />
+        <result property="brandName" column="brand_name" />
+        <result property="price" column="price" />
+        <result property="productCount" column="product_count" />
+        <result property="totalAmount" column="total_amount" />
+        <result property="remark" column="remark" />
+        <result property="yn" column="yn" />
+        <result property="createdTime" column="created_time" />
+        <result property="modifiedTime" column="modified_time" />
+        
+    </resultMap>
+
+    <sql id="queryColumns">
+        <trim prefixOverrides=",">
+        
+            ,id	/* 自动编号 */
+        
+            ,order_key	/* order_key */
+        
+            ,user_id	/* 用户id */
+        
+            ,user_name	/* 用户名称 */
+        
+            ,sex	/* 用户性别  0-未知   1-男  2-女 */
+        
+            ,phone	/* 手机号 */
+        
+            ,product_id	/* 商品id */
+        
+            ,product_name	/* 商品名称 */
+        
+            ,unit	/* 商品单位 */
+        
+            ,categroy_id	/* 商品分类id */
+        
+            ,categroy_name	/* 商品分类名称 */
+        
+            ,brand_id	/* 商品品牌id */
+        
+            ,brand_name	/* 商品品牌名称 */
+        
+            ,price	/* 售价 */
+        
+            ,product_count	/* 已点数量 */
+        
+            ,total_amount	/* 总价 */
+        
+            ,remark	/* 备注 */
+        
+            ,yn	/* 数据状态 0-无效 1-有效 */
+        
+            ,created_time	/* 创建时间 */
+        
+            ,modified_time	/* 修改时间 */
+        
+        </trim>
+    </sql>
+
+    <sql id="wherecontation">
+        <if test="query!= null">
+        
+            <if test="query.id != null">
+                and id = #{query.id} /* 自动编号 */
+            </if>
+        
+            <if test="query.orderKey != null">
+                and order_key = #{query.orderKey} /* order_key */
+            </if>
+        
+            <if test="query.userId != null">
+                and user_id = #{query.userId} /* 用户id */
+            </if>
+        
+            <if test="query.userName != null and query.userName != ''">
+                and user_name = #{query.userName} /* 用户名称 */
+            </if>
+        
+            <if test="query.sex != null">
+                and sex = #{query.sex} /* 用户性别  0-未知   1-男  2-女 */
+            </if>
+        
+            <if test="query.phone != null and query.phone != ''">
+                and phone = #{query.phone} /* 手机号 */
+            </if>
+        
+            <if test="query.productId != null">
+                and product_id = #{query.productId} /* 商品id */
+            </if>
+        
+            <if test="query.productName != null and query.productName != ''">
+                and product_name = #{query.productName} /* 商品名称 */
+            </if>
+        
+            <if test="query.unit != null and query.unit != ''">
+                and unit = #{query.unit} /* 商品单位 */
+            </if>
+        
+            <if test="query.categroyId != null">
+                and categroy_id = #{query.categroyId} /* 商品分类id */
+            </if>
+        
+            <if test="query.categroyName != null and query.categroyName != ''">
+                and categroy_name = #{query.categroyName} /* 商品分类名称 */
+            </if>
+        
+            <if test="query.brandId != null">
+                and brand_id = #{query.brandId} /* 商品品牌id */
+            </if>
+        
+            <if test="query.brandName != null and query.brandName != ''">
+                and brand_name = #{query.brandName} /* 商品品牌名称 */
+            </if>
+        
+            <if test="query.price != null">
+                and price = #{query.price} /* 售价 */
+            </if>
+        
+            <if test="query.productCount != null">
+                and product_count = #{query.productCount} /* 已点数量 */
+            </if>
+        
+            <if test="query.totalAmount != null">
+                and total_amount = #{query.totalAmount} /* 总价 */
+            </if>
+        
+            <if test="query.remark != null and query.remark != ''">
+                and remark = #{query.remark} /* 备注 */
+            </if>
+        
+            <if test="query.yn != null">
+                and yn = #{query.yn} /* 数据状态 0-无效 1-有效 */
+            </if>
+        
+            <if test="query.createdTime != null">
+                and created_time = #{query.createdTime} /* 创建时间 */
+            </if>
+        
+            <if test="query.modifiedTime != null">
+                and modified_time = #{query.modifiedTime} /* 修改时间 */
+            </if>
+        
+        </if>
+    </sql>
+
+    <sql id="getInsertField">
+        <trim prefixOverrides=",">
+        
+        <if test="id != null">
+            ,id /* 自动编号 */
+        </if>
+        
+        <if test="orderKey != null">
+            ,order_key /* order_key */
+        </if>
+        
+        <if test="userId != null">
+            ,user_id /* 用户id */
+        </if>
+        
+        <if test="userName != null">
+            ,user_name /* 用户名称 */
+        </if>
+        
+        <if test="sex != null">
+            ,sex /* 用户性别  0-未知   1-男  2-女 */
+        </if>
+        
+        <if test="phone != null">
+            ,phone /* 手机号 */
+        </if>
+        
+        <if test="productId != null">
+            ,product_id /* 商品id */
+        </if>
+        
+        <if test="productName != null">
+            ,product_name /* 商品名称 */
+        </if>
+        
+        <if test="unit != null">
+            ,unit /* 商品单位 */
+        </if>
+        
+        <if test="categroyId != null">
+            ,categroy_id /* 商品分类id */
+        </if>
+        
+        <if test="categroyName != null">
+            ,categroy_name /* 商品分类名称 */
+        </if>
+        
+        <if test="brandId != null">
+            ,brand_id /* 商品品牌id */
+        </if>
+        
+        <if test="brandName != null">
+            ,brand_name /* 商品品牌名称 */
+        </if>
+        
+        <if test="price != null">
+            ,price /* 售价 */
+        </if>
+        
+        <if test="productCount != null">
+            ,product_count /* 已点数量 */
+        </if>
+        
+        <if test="totalAmount != null">
+            ,total_amount /* 总价 */
+        </if>
+        
+        <if test="remark != null">
+            ,remark /* 备注 */
+        </if>
+        
+        <if test="yn != null">
+            ,yn /* 数据状态 0-无效 1-有效 */
+        </if>
+        
+        <if test="createdTime != null">
+            ,created_time /* 创建时间 */
+        </if>
+        
+        <if test="modifiedTime != null">
+            ,modified_time /* 修改时间 */
+        </if>
+        
+        </trim>
+    </sql>
+
+    <sql id="getInsertFieldValue">
+        <trim prefixOverrides=",">
+        
+        <if test="id != null">
+            ,#id /* 自动编号 */
+        </if>
+        
+        <if test="orderKey != null">
+            ,#orderKey /* order_key */
+        </if>
+        
+        <if test="userId != null">
+            ,#userId /* 用户id */
+        </if>
+        
+        <if test="userName != null">
+            ,#userName /* 用户名称 */
+        </if>
+        
+        <if test="sex != null">
+            ,#sex /* 用户性别  0-未知   1-男  2-女 */
+        </if>
+        
+        <if test="phone != null">
+            ,#phone /* 手机号 */
+        </if>
+        
+        <if test="productId != null">
+            ,#productId /* 商品id */
+        </if>
+        
+        <if test="productName != null">
+            ,#productName /* 商品名称 */
+        </if>
+        
+        <if test="unit != null">
+            ,#unit /* 商品单位 */
+        </if>
+        
+        <if test="categroyId != null">
+            ,#categroyId /* 商品分类id */
+        </if>
+        
+        <if test="categroyName != null">
+            ,#categroyName /* 商品分类名称 */
+        </if>
+        
+        <if test="brandId != null">
+            ,#brandId /* 商品品牌id */
+        </if>
+        
+        <if test="brandName != null">
+            ,#brandName /* 商品品牌名称 */
+        </if>
+        
+        <if test="price != null">
+            ,#price /* 售价 */
+        </if>
+        
+        <if test="productCount != null">
+            ,#productCount /* 已点数量 */
+        </if>
+        
+        <if test="totalAmount != null">
+            ,#totalAmount /* 总价 */
+        </if>
+        
+        <if test="remark != null">
+            ,#remark /* 备注 */
+        </if>
+        
+        <if test="yn != null">
+            ,#yn /* 数据状态 0-无效 1-有效 */
+        </if>
+        
+        <if test="createdTime != null">
+            ,#createdTime /* 创建时间 */
+        </if>
+        
+        <if test="modifiedTime != null">
+            ,#modifiedTime /* 修改时间 */
+        </if>
+        
+        </trim>
+    </sql>
+
+    <insert id="insert" parameterType="OrderDetail"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        /* 订单明细表 */
+        INSERT  INTO  order_detail
+        (
+            <include refid="getInsertField" />
+        )
+        VALUES (
+            <include refid="getInsertFieldValue" />
+        )
+    </insert>
+
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT  INTO  order_detail
+        <trim prefix="(" suffix=")" prefixOverrides=",">
+        
+            ,id	/* 自动编号 */
+        
+            ,order_key	/* order_key */
+        
+            ,user_id	/* 用户id */
+        
+            ,user_name	/* 用户名称 */
+        
+            ,sex	/* 用户性别  0-未知   1-男  2-女 */
+        
+            ,phone	/* 手机号 */
+        
+            ,product_id	/* 商品id */
+        
+            ,product_name	/* 商品名称 */
+        
+            ,unit	/* 商品单位 */
+        
+            ,categroy_id	/* 商品分类id */
+        
+            ,categroy_name	/* 商品分类名称 */
+        
+            ,brand_id	/* 商品品牌id */
+        
+            ,brand_name	/* 商品品牌名称 */
+        
+            ,price	/* 售价 */
+        
+            ,product_count	/* 已点数量 */
+        
+            ,total_amount	/* 总价 */
+        
+            ,remark	/* 备注 */
+        
+            ,yn	/* 数据状态 0-无效 1-有效 */
+        
+            ,created_time	/* 创建时间 */
+        
+            ,modified_time	/* 修改时间 */
+        
+        </trim>
+        VALUES
+        <foreach collection="list" item="item" index="index" separator="," >
+            <trim prefix="(" suffix=")" prefixOverrides=",">
+            
+                ,#{item.id}	/* 自动编号 */
+            
+                ,#{item.orderKey}	/* order_key */
+            
+                ,#{item.userId}	/* 用户id */
+            
+                ,#{item.userName}	/* 用户名称 */
+            
+                ,#{item.sex}	/* 用户性别  0-未知   1-男  2-女 */
+            
+                ,#{item.phone}	/* 手机号 */
+            
+                ,#{item.productId}	/* 商品id */
+            
+                ,#{item.productName}	/* 商品名称 */
+            
+                ,#{item.unit}	/* 商品单位 */
+            
+                ,#{item.categroyId}	/* 商品分类id */
+            
+                ,#{item.categroyName}	/* 商品分类名称 */
+            
+                ,#{item.brandId}	/* 商品品牌id */
+            
+                ,#{item.brandName}	/* 商品品牌名称 */
+            
+                ,#{item.price}	/* 售价 */
+            
+                ,#{item.productCount}	/* 已点数量 */
+            
+                ,#{item.totalAmount}	/* 总价 */
+            
+                ,#{item.remark}	/* 备注 */
+            
+                ,#{item.yn}	/* 数据状态 0-无效 1-有效 */
+            
+                ,#{item.createdTime}	/* 创建时间 */
+            
+                ,#{item.modifiedTime}	/* 修改时间 */
+            
+            </trim>
+        </foreach>
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        DELETE FROM order_detail WHERE id = #{id}
+    </delete>
+
+    <update id="update" parameterType="OrderDetail" >
+        UPDATE  order_detail
+        /* 订单明细表 */
+        <trim prefix="SET" prefixOverrides=",">
+        
+            <if test="id != null">
+                ,id = #{id} /* 自动编号 */
+            </if>
+        
+            <if test="orderKey != null">
+                ,order_key = #{orderKey} /* order_key */
+            </if>
+        
+            <if test="userId != null">
+                ,user_id = #{userId} /* 用户id */
+            </if>
+        
+            <if test="userName != null">
+                ,user_name = #{userName} /* 用户名称 */
+            </if>
+        
+            <if test="sex != null">
+                ,sex = #{sex} /* 用户性别  0-未知   1-男  2-女 */
+            </if>
+        
+            <if test="phone != null">
+                ,phone = #{phone} /* 手机号 */
+            </if>
+        
+            <if test="productId != null">
+                ,product_id = #{productId} /* 商品id */
+            </if>
+        
+            <if test="productName != null">
+                ,product_name = #{productName} /* 商品名称 */
+            </if>
+        
+            <if test="unit != null">
+                ,unit = #{unit} /* 商品单位 */
+            </if>
+        
+            <if test="categroyId != null">
+                ,categroy_id = #{categroyId} /* 商品分类id */
+            </if>
+        
+            <if test="categroyName != null">
+                ,categroy_name = #{categroyName} /* 商品分类名称 */
+            </if>
+        
+            <if test="brandId != null">
+                ,brand_id = #{brandId} /* 商品品牌id */
+            </if>
+        
+            <if test="brandName != null">
+                ,brand_name = #{brandName} /* 商品品牌名称 */
+            </if>
+        
+            <if test="price != null">
+                ,price = #{price} /* 售价 */
+            </if>
+        
+            <if test="productCount != null">
+                ,product_count = #{productCount} /* 已点数量 */
+            </if>
+        
+            <if test="totalAmount != null">
+                ,total_amount = #{totalAmount} /* 总价 */
+            </if>
+        
+            <if test="remark != null">
+                ,remark = #{remark} /* 备注 */
+            </if>
+        
+            <if test="yn != null">
+                ,yn = #{yn} /* 数据状态 0-无效 1-有效 */
+            </if>
+        
+        </trim>
+        WHERE
+        id = #{id}		/* id */
+    </update>
+
+    <select id="findById" parameterType="OrderDetail"  resultMap="baseResultMap">
+        SELECT
+        <include refid="queryColumns" />
+        FROM   order_detail  /* 订单明细表 */
+        WHERE
+        id = #{id}		/* id */
+    </select>
+
+    <select id="getAllList" parameterType="com.openmall.order.utils.Query"  resultMap="baseResultMap">
+        SELECT
+        <include refid="queryColumns" />
+        FROM    order_detail  /* 订单明细表 */
+        WHERE 1 = 1
+        <include refid="wherecontation"/>
+        ORDER BY id DESC
+    </select>
+
+    <select id="getPagenationList" parameterType="com.openmall.order.utils.PageQueryWrapper" resultMap="baseResultMap">
+        SELECT
+        <include refid="queryColumns" />
+        FROM   order_detail /*  订单明细表 */
+        WHERE 1=1
+        <include refid="wherecontation"/>
+        ORDER BY id DESC
+        LIMIT  #{startRow} ,#{endRow}
+    </select>
+
+    <select id="getPagenationListById" parameterType="com.openmall.order.utils.IdPageQuery" resultMap="baseResultMap">
+        SELECT
+        <include refid="queryColumns" />
+        FROM   order_detail /*  订单明细表 */
+        WHERE id > #{minId}
+        <include refid="wherecontation"/>
+        ORDER BY id ASC
+        LIMIT #{pageSize}
+    </select>
+
+    <select id="getCount" parameterType="com.openmall.order.utils.PageQuery" resultType="java.lang.Long">
+        SELECT COUNT(*)  FROM  order_detail  /*  订单明细表 */
+        WHERE 1 = 1
+        <include refid="wherecontation"/>
+    </select>
+
+    <select id="getCountBy" parameterType="com.openmall.order.utils.IdPageQuery" resultType="java.lang.Long">
+        SELECT count(1)  FROM  order_detail  /*  订单明细表 */
+        WHERE 1 = 1
+        <include refid="wherecontation"/>
+    </select>
+
+    <select id="getTotalCount" parameterType="com.openmall.order.utils.Query" resultType="java.lang.Long">
+        SELECT count(1)  FROM  order_detail /* 订单明细表 */
+        WHERE 1=1
+        <include refid="wherecontation"/>
+    </select>
+
+</mapper>

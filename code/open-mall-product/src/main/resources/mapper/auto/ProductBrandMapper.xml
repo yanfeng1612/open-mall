@@ -199,23 +199,23 @@
         <trim prefix="SET" prefixOverrides=",">
         
             <if test="id != null">
-                ,id = #id /* 自动编号 */
+                ,id = #{id} /* 自动编号 */
             </if>
         
             <if test="brandName != null">
-                ,brand_name = #brandName /* 商品品牌名称 */
+                ,brand_name = #{brandName} /* 商品品牌名称 */
             </if>
         
             <if test="description != null">
-                ,description = #description /* 分类描述 */
+                ,description = #{description} /* 分类描述 */
             </if>
         
             <if test="rank != null">
-                ,rank = #rank /* 排序 */
+                ,rank = #{rank} /* 排序 */
             </if>
         
             <if test="yn != null">
-                ,yn = #yn /* 数据状态 0-无效 1-有效 */
+                ,yn = #{yn} /* 数据状态 0-无效 1-有效 */
             </if>
         
         </trim>

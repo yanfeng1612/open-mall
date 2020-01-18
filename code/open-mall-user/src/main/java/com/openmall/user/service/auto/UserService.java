@@ -14,7 +14,7 @@ import com.openmall.user.domain.auto.UserQuery;
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-12
+ * @date 2020-01-18
  **/
 public interface UserService {
 
