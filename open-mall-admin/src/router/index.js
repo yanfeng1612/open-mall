@@ -29,10 +29,20 @@ export default new Router({
                     component: () => import(/* webpackChunkName: "table" */ '../components/page/BaseTable.vue'),
                     meta: { title: '基础表格' }
                 },
-                
+
                 {
                     path: '/userList',
                     component: () => import(/* webpackChunkName: "table" */ '../components/page/user/list.vue'),
+                    meta: { title: '用户表' }
+                },
+                {
+                    path: '/userEdit',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/user/edit.vue'),
+                    meta: { title: '用户表' }
+                },
+                {
+                    path: '/userDetail',
+                    component: () => import(/* webpackChunkName: "table" */ '../components/page/user/detail.vue'),
                     meta: { title: '用户表' }
                 },
                 

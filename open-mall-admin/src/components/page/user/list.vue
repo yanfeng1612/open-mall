@@ -3,7 +3,7 @@
         <div class="crumbs">
             <el-breadcrumb separator="/">
                 <el-breadcrumb-item><i class="el-icon-date"></i>菜单</el-breadcrumb-item>
-                <el-breadcrumb-item>${frontendObject.objectDesc}管理</el-breadcrumb-item>
+                <el-breadcrumb-item>用户表管理</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="container">
@@ -12,6 +12,20 @@
                     <el-input v-model="searchData.query.id" placeholder="自动编号" class="handle-input mr10"></el-input>
                  
                     <el-input v-model="searchData.query.username" placeholder="用户名" class="handle-input mr10"></el-input>
+                 
+                    <el-input v-model="searchData.query.password" placeholder="密码" class="handle-input mr10"></el-input>
+                 
+                    <el-input v-model="searchData.query.phone" placeholder="手机号" class="handle-input mr10"></el-input>
+                 
+                    <el-input v-model="searchData.query.address" placeholder="地址" class="handle-input mr10"></el-input>
+                 
+                    <el-input v-model="searchData.query.sex" placeholder="用户性别  0-未知   1-男  2-女" class="handle-input mr10"></el-input>
+                 
+                    <el-input v-model="searchData.query.age" placeholder="用户年龄" class="handle-input mr10"></el-input>
+                 
+                    <el-input v-model="searchData.query.birth" placeholder="生日" class="handle-input mr10"></el-input>
+                 
+                    <el-input v-model="searchData.query.email" placeholder="邮箱" class="handle-input mr10"></el-input>
                  
                     <el-input v-model="searchData.query.yn" placeholder="数据状态 0-无效 1-有效" class="handle-input mr10"></el-input>
                  
@@ -29,6 +43,20 @@
                     <el-table-column prop="id" label="自动编号"   ></el-table-column>
                 
                     <el-table-column prop="username" label="用户名"   ></el-table-column>
+                
+                    <el-table-column prop="password" label="密码"   ></el-table-column>
+                
+                    <el-table-column prop="phone" label="手机号"   ></el-table-column>
+                
+                    <el-table-column prop="address" label="地址"   ></el-table-column>
+                
+                    <el-table-column prop="sex" label="用户性别  0-未知   1-男  2-女"   ></el-table-column>
+                
+                    <el-table-column prop="age" label="用户年龄"   ></el-table-column>
+                
+                    <el-table-column prop="birth" label="生日"   ></el-table-column>
+                
+                    <el-table-column prop="email" label="邮箱"   ></el-table-column>
                 
                     <el-table-column prop="yn" label="数据状态 0-无效 1-有效"   ></el-table-column>
                 
@@ -89,7 +117,7 @@
                 sData["pageSize"] = this.pageInfo.pageSize;
                 sData["pageNo"] = this.pageInfo.curPage;
                 requestData({
-                    "url": "/api/open-mall-user/user/list?pageSize=" + self.pageInfo.pageSize + "&pageNo=" + self.pageInfo.curPage,
+                    "url": "/api/user/list?pageSize=" + self.pageInfo.pageSize + "&pageNo=" + self.pageInfo.curPage,
                     "data": this.searchData
                     , "callback": function (response) {
                         self.tableData = response.values;
