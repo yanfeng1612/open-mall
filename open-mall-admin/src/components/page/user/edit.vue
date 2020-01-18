@@ -152,7 +152,7 @@
                 this.$refs["formData"].validate((valid) => {
                     if (valid) {
                         requestData({
-                            "url": "/api/oper-mall-user/user/updateById",
+                            "url": "/api/open-mall-user/user/updateById",
                             "data": this.formData
                             , "callback": function (redata) {
                                 self.$message({
