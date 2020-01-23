@@ -9,13 +9,13 @@
         <div class="container container-margin">
             <el-input v-model="formData.id" type="hidden" />
 
-            <el-row>
-                <el-col :span="8">
-                    <el-form-item label="自动编号：" prop="自动编号">
-                        <el-input v-model="formData.id" placeholder="id"></el-input>
-                    </el-form-item>
-                </el-col>
-            </el-row>
+<!--            <el-row>-->
+<!--                <el-col :span="8">-->
+<!--                    <el-form-item label="自动编号：" prop="自动编号">-->
+<!--                        <el-input v-model="formData.id" placeholder="id"></el-input>-->
+<!--                    </el-form-item>-->
+<!--                </el-col>-->
+<!--            </el-row>-->
 
             <el-row>
                 <el-col :span="8">
@@ -35,32 +35,38 @@
 
             <el-row>
                 <el-col :span="8">
-                    <el-form-item label="商品分类id：" prop="商品分类id">
-                        <el-input v-model="formData.categroyId" placeholder="categroyId"></el-input>
-                    </el-form-item>
-                </el-col>
-            </el-row>
-
-            <el-row>
-                <el-col :span="8">
                     <el-form-item label="商品分类名称：" prop="商品分类名称">
-                        <el-input v-model="formData.categroyName" placeholder="categroyName"></el-input>
+                        <el-select v-model="formData.produtCategoryId" placeholder="请选择">
+                            <el-option
+                                v-for="item in categoryList"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                            </el-option>
+                        </el-select>
                     </el-form-item>
                 </el-col>
             </el-row>
 
-            <el-row>
-                <el-col :span="8">
-                    <el-form-item label="商品品牌id：" prop="商品品牌id">
-                        <el-input v-model="formData.brandId" placeholder="brandId"></el-input>
-                    </el-form-item>
-                </el-col>
-            </el-row>
+<!--            <el-row>-->
+<!--                <el-col :span="8">-->
+<!--                    <el-form-item label="商品品牌名称：" prop="商品品牌名称">-->
+<!--                        <el-input v-model="formData.brandName" placeholder="brandName"></el-input>-->
+<!--                    </el-form-item>-->
+<!--                </el-col>-->
+<!--            </el-row>-->
 
             <el-row>
                 <el-col :span="8">
-                    <el-form-item label="商品品牌名称：" prop="商品品牌名称">
-                        <el-input v-model="formData.brandName" placeholder="brandName"></el-input>
+                    <el-form-item label="商品品牌名称：" prop="商品品牌名称：">
+                        <el-select v-model="formData.produtBrandId" placeholder="请选择">
+                            <el-option
+                                    v-for="item in brandList"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                            </el-option>
+                        </el-select>
                     </el-form-item>
                 </el-col>
             </el-row>
@@ -137,21 +143,21 @@
                 </el-col>
             </el-row>
 
-            <el-row>
-                <el-col :span="8">
-                    <el-form-item label="创建时间：" prop="创建时间">
-                        <el-input v-model="formData.createdTime" placeholder="createdTime"></el-input>
-                    </el-form-item>
-                </el-col>
-            </el-row>
+<!--            <el-row>-->
+<!--                <el-col :span="8">-->
+<!--                    <el-form-item label="创建时间：" prop="创建时间">-->
+<!--                        <el-input v-model="formData.createdTime" placeholder="createdTime"></el-input>-->
+<!--                    </el-form-item>-->
+<!--                </el-col>-->
+<!--            </el-row>-->
 
-            <el-row>
-                <el-col :span="8">
-                    <el-form-item label="修改时间：" prop="修改时间">
-                        <el-input v-model="formData.modifiedTime" placeholder="modifiedTime"></el-input>
-                    </el-form-item>
-                </el-col>
-            </el-row>
+<!--            <el-row>-->
+<!--                <el-col :span="8">-->
+<!--                    <el-form-item label="修改时间：" prop="修改时间">-->
+<!--                        <el-input v-model="formData.modifiedTime" placeholder="modifiedTime"></el-input>-->
+<!--                    </el-form-item>-->
+<!--                </el-col>-->
+<!--            </el-row>-->
 
         </div>
         <div class="container-margin to-center ">
@@ -175,10 +181,41 @@
                 oldData: null,
                 isInactive: false,
                 formData: {},
-                rules: {}
+                rules: {},
+                categoryList: [],
+                brandList: []
             }
         },
         created() {
+            let self = this;
+            requestData({
+                "url": "/api/open-mall-product/productCategory/list",
+                "data": {},
+                "callback": function (redata) {
+                    // self.formData = redata;
+                    console.log(redata);
+                    for (let i = 0; i < redata.values.length;i ++) {
+                        let category = {};
+                        category.value = redata.values[i].id;
+                        category.label = redata.values[i].categroyName;
+                        self.categoryList.push(category);
+                        self.formData = redata;
+                    }
+                }
+            });
+            requestData({
+                "url": "/api/open-mall-product/productBrand/list",
+                "data": {},
+                "callback": function (redata) {
+                    for (let i = 0; i < redata.values.length;i ++) {
+                        let brand = {};
+                        brand.value = redata.values[i].id;
+                        brand.label = redata.values[i].brandName;
+                        self.brandList.push(brand);
+                        self.formData = redata;
+                    }
+                }
+            });
             this.getData();
         },
         methods: {
@@ -186,7 +223,7 @@
                 var self = this;
                 if (this.$route.query.id != null) {
                     requestData({
-                        "url": "/api/product/detail",
+                        "url": "/api/open-mall-product/product/detail",
                         "data": {id: this.$route.query.id},
                         "callback": function (redata) {
                             self.formData = redata;
@@ -200,9 +237,9 @@
                 this.$refs["formData"].validate((valid) => {
                     if (valid) {
                         requestData({
-                            "url": "/api/product/updateById",
-                            "data": this.formData
-                            , "callback": function (redata) {
+                            "url": "/api/open-mall-product/product/custom/insert",
+                            "data": this.formData,
+                            "callback": function (redata) {
                                 self.$message({
                                     type: 'success',
                                     message: '保存成功!'
