@@ -33,49 +33,49 @@
     <sql id="queryColumns">
         <trim prefixOverrides=",">
         
-            ,id	/* 自动编号 */
+            ,id
         
-            ,order_key	/* 全局唯一order_key */
+            ,order_key
         
-            ,user_id	/* 用户id */
+            ,user_id
         
-            ,user_name	/* 用户名称 */
+            ,user_name
         
-            ,sex	/* 用户性别  0-未知   1-男  2-女 */
+            ,sex
         
-            ,phone	/* 手机号 */
+            ,phone
         
-            ,channel_key	/* 渠道key */
+            ,channel_key
         
-            ,channel_Name	/* 渠道名称 */
+            ,channel_Name
         
-            ,flow_amount	/* 流水 */
+            ,flow_amount
         
-            ,paid_amount	/* 实收 */
+            ,paid_amount
         
-            ,promotion_amount	/* 优惠 */
+            ,promotion_amount
         
-            ,total_number	/* 总数量 */
+            ,total_number
         
-            ,total_weight	/* 总重量（单位克） */
+            ,total_weight
         
-            ,order_status	/* 订单状态 40 已完成  30 作废  20 已退款 */
+            ,order_status
         
-            ,order_time	/* 订单时间，包含不限于预定时间、付款时间等,精确到分 */
+            ,order_time
         
-            ,remark	/* 备注 */
+            ,remark
         
-            ,refund_amount	/* 退款总金额 */
+            ,refund_amount
         
-            ,pay_way_type	/* 支付方式 */
+            ,pay_way_type
         
-            ,pay_way_type_ID	/*  0 未知   1 支付宝   2 微信 */
+            ,pay_way_type_ID
         
-            ,yn	/* 数据状态 0-无效 1-有效 */
+            ,yn
         
-            ,created_time	/* 创建时间 */
+            ,created_time
         
-            ,modified_time	/* 修改时间 */
+            ,modified_time
         
         </trim>
     </sql>
@@ -84,91 +84,91 @@
         <if test="query!= null">
         
             <if test="query.id != null">
-                and id = #{query.id} /* 自动编号 */
+                and id = #{query.id}
             </if>
         
             <if test="query.orderKey != null">
-                and order_key = #{query.orderKey} /* 全局唯一order_key */
+                and order_key = #{query.orderKey}
             </if>
         
             <if test="query.userId != null">
-                and user_id = #{query.userId} /* 用户id */
+                and user_id = #{query.userId}
             </if>
         
             <if test="query.userName != null and query.userName != ''">
-                and user_name = #{query.userName} /* 用户名称 */
+                and user_name = #{query.userName}
             </if>
         
             <if test="query.sex != null">
-                and sex = #{query.sex} /* 用户性别  0-未知   1-男  2-女 */
+                and sex = #{query.sex}
             </if>
         
             <if test="query.phone != null and query.phone != ''">
-                and phone = #{query.phone} /* 手机号 */
+                and phone = #{query.phone}
             </if>
         
             <if test="query.channelKey != null and query.channelKey != ''">
-                and channel_key = #{query.channelKey} /* 渠道key */
+                and channel_key = #{query.channelKey}
             </if>
         
             <if test="query.channelName != null and query.channelName != ''">
-                and channel_Name = #{query.channelName} /* 渠道名称 */
+                and channel_Name = #{query.channelName}
             </if>
         
             <if test="query.flowAmount != null">
-                and flow_amount = #{query.flowAmount} /* 流水 */
+                and flow_amount = #{query.flowAmount}
             </if>
         
             <if test="query.paidAmount != null">
-                and paid_amount = #{query.paidAmount} /* 实收 */
+                and paid_amount = #{query.paidAmount}
             </if>
         
             <if test="query.promotionAmount != null">
-                and promotion_amount = #{query.promotionAmount} /* 优惠 */
+                and promotion_amount = #{query.promotionAmount}
             </if>
         
             <if test="query.totalNumber != null">
-                and total_number = #{query.totalNumber} /* 总数量 */
+                and total_number = #{query.totalNumber}
             </if>
         
             <if test="query.totalWeight != null">
-                and total_weight = #{query.totalWeight} /* 总重量（单位克） */
+                and total_weight = #{query.totalWeight}
             </if>
         
             <if test="query.orderStatus != null">
-                and order_status = #{query.orderStatus} /* 订单状态 40 已完成  30 作废  20 已退款 */
+                and order_status = #{query.orderStatus}
             </if>
         
             <if test="query.orderTime != null">
-                and order_time = #{query.orderTime} /* 订单时间，包含不限于预定时间、付款时间等,精确到分 */
+                and order_time = #{query.orderTime}
             </if>
         
             <if test="query.remark != null and query.remark != ''">
-                and remark = #{query.remark} /* 备注 */
+                and remark = #{query.remark}
             </if>
         
             <if test="query.refundAmount != null">
-                and refund_amount = #{query.refundAmount} /* 退款总金额 */
+                and refund_amount = #{query.refundAmount}
             </if>
         
             <if test="query.payWayType != null and query.payWayType != ''">
-                and pay_way_type = #{query.payWayType} /* 支付方式 */
+                and pay_way_type = #{query.payWayType}
             </if>
         
             <if test="query.payWayTypeID != null">
-                and pay_way_type_ID = #{query.payWayTypeID} /*  0 未知   1 支付宝   2 微信 */
+                and pay_way_type_ID = #{query.payWayTypeID}
             </if>
         
             <if test="query.yn != null">
-                and yn = #{query.yn} /* 数据状态 0-无效 1-有效 */
+                and yn = #{query.yn}
             </if>
         
             <if test="query.createdTime != null">
-                and created_time = #{query.createdTime} /* 创建时间 */
+                and created_time = #{query.createdTime}
             </if>
         
             <if test="query.modifiedTime != null">
-                and modified_time = #{query.modifiedTime} /* 修改时间 */
+                and modified_time = #{query.modifiedTime}
             </if>
         
         </if>
@@ -178,91 +178,91 @@
         <trim prefixOverrides=",">
         
         <if test="id != null">
-            ,id /* 自动编号 */
+            ,id
         </if>
         
         <if test="orderKey != null">
-            ,order_key /* 全局唯一order_key */
+            ,order_key
         </if>
         
         <if test="userId != null">
-            ,user_id /* 用户id */
+            ,user_id
         </if>
         
         <if test="userName != null">
-            ,user_name /* 用户名称 */
+            ,user_name
         </if>
         
         <if test="sex != null">
-            ,sex /* 用户性别  0-未知   1-男  2-女 */
+            ,sex
         </if>
         
         <if test="phone != null">
-            ,phone /* 手机号 */
+            ,phone
         </if>
         
         <if test="channelKey != null">
-            ,channel_key /* 渠道key */
+            ,channel_key
         </if>
         
         <if test="channelName != null">
-            ,channel_Name /* 渠道名称 */
+            ,channel_Name
         </if>
         
         <if test="flowAmount != null">
-            ,flow_amount /* 流水 */
+            ,flow_amount
         </if>
         
         <if test="paidAmount != null">
-            ,paid_amount /* 实收 */
+            ,paid_amount
         </if>
         
         <if test="promotionAmount != null">
-            ,promotion_amount /* 优惠 */
+            ,promotion_amount
         </if>
         
         <if test="totalNumber != null">
-            ,total_number /* 总数量 */
+            ,total_number
         </if>
         
         <if test="totalWeight != null">
-            ,total_weight /* 总重量（单位克） */
+            ,total_weight
         </if>
         
         <if test="orderStatus != null">
-            ,order_status /* 订单状态 40 已完成  30 作废  20 已退款 */
+            ,order_status
         </if>
         
         <if test="orderTime != null">
-            ,order_time /* 订单时间，包含不限于预定时间、付款时间等,精确到分 */
+            ,order_time
         </if>
         
         <if test="remark != null">
-            ,remark /* 备注 */
+            ,remark
         </if>
         
         <if test="refundAmount != null">
-            ,refund_amount /* 退款总金额 */
+            ,refund_amount
         </if>
         
         <if test="payWayType != null">
-            ,pay_way_type /* 支付方式 */
+            ,pay_way_type
         </if>
         
         <if test="payWayTypeID != null">
-            ,pay_way_type_ID /*  0 未知   1 支付宝   2 微信 */
+            ,pay_way_type_ID
         </if>
         
         <if test="yn != null">
-            ,yn /* 数据状态 0-无效 1-有效 */
+            ,yn
         </if>
         
         <if test="createdTime != null">
-            ,created_time /* 创建时间 */
+            ,created_time
         </if>
         
         <if test="modifiedTime != null">
-            ,modified_time /* 修改时间 */
+            ,modified_time
         </if>
         
         </trim>
@@ -272,91 +272,91 @@
         <trim prefixOverrides=",">
         
         <if test="id != null">
-            ,#id /* 自动编号 */
+            ,#{id}
         </if>
         
         <if test="orderKey != null">
-            ,#orderKey /* 全局唯一order_key */
+            ,#{orderKey}
         </if>
         
         <if test="userId != null">
-            ,#userId /* 用户id */
+            ,#{userId}
         </if>
         
         <if test="userName != null">
-            ,#userName /* 用户名称 */
+            ,#{userName}
         </if>
         
         <if test="sex != null">
-            ,#sex /* 用户性别  0-未知   1-男  2-女 */
+            ,#{sex}
         </if>
         
         <if test="phone != null">
-            ,#phone /* 手机号 */
+            ,#{phone}
         </if>
         
         <if test="channelKey != null">
-            ,#channelKey /* 渠道key */
+            ,#{channelKey}
         </if>
         
         <if test="channelName != null">
-            ,#channelName /* 渠道名称 */
+            ,#{channelName}
         </if>
         
         <if test="flowAmount != null">
-            ,#flowAmount /* 流水 */
+            ,#{flowAmount}
         </if>
         
         <if test="paidAmount != null">
-            ,#paidAmount /* 实收 */
+            ,#{paidAmount}
         </if>
         
         <if test="promotionAmount != null">
-            ,#promotionAmount /* 优惠 */
+            ,#{promotionAmount}
         </if>
         
         <if test="totalNumber != null">
-            ,#totalNumber /* 总数量 */
+            ,#{totalNumber}
         </if>
         
         <if test="totalWeight != null">
-            ,#totalWeight /* 总重量（单位克） */
+            ,#{totalWeight}
         </if>
         
         <if test="orderStatus != null">
-            ,#orderStatus /* 订单状态 40 已完成  30 作废  20 已退款 */
+            ,#{orderStatus}
         </if>
         
         <if test="orderTime != null">
-            ,#orderTime /* 订单时间，包含不限于预定时间、付款时间等,精确到分 */
+            ,#{orderTime}
         </if>
         
         <if test="remark != null">
-            ,#remark /* 备注 */
+            ,#{remark}
         </if>
         
         <if test="refundAmount != null">
-            ,#refundAmount /* 退款总金额 */
+            ,#{refundAmount}
         </if>
         
         <if test="payWayType != null">
-            ,#payWayType /* 支付方式 */
+            ,#{payWayType}
         </if>
         
         <if test="payWayTypeID != null">
-            ,#payWayTypeID /*  0 未知   1 支付宝   2 微信 */
+            ,#{payWayTypeID}
         </if>
         
         <if test="yn != null">
-            ,#yn /* 数据状态 0-无效 1-有效 */
+            ,#{yn}
         </if>
         
         <if test="createdTime != null">
-            ,#createdTime /* 创建时间 */
+            ,#{createdTime}
         </if>
         
         <if test="modifiedTime != null">
-            ,#modifiedTime /* 修改时间 */
+            ,#{modifiedTime}
         </if>
         
         </trim>
@@ -474,6 +474,58 @@
         </foreach>
     </insert>
 
+    <insert id="insertOrUpdate" parameterType="OrderMaster"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        /* 订单master表 */
+        INSERT  INTO  order_master
+        (
+            <include refid="getInsertField" />
+        )
+        VALUES (
+            <include refid="getInsertFieldValue" />
+        ) ON DUPLICATE KEY
+        <trim prefix="UPDATE" suffixOverrides=",">
+            
+                    order_key = VALUES(order_key),
+                
+                    user_id = VALUES(user_id),
+                
+                    user_name = VALUES(user_name),
+                
+                    sex = VALUES(sex),
+                
+                    phone = VALUES(phone),
+                
+                    channel_key = VALUES(channel_key),
+                
+                    channel_Name = VALUES(channel_Name),
+                
+                    flow_amount = VALUES(flow_amount),
+                
+                    paid_amount = VALUES(paid_amount),
+                
+                    promotion_amount = VALUES(promotion_amount),
+                
+                    total_number = VALUES(total_number),
+                
+                    total_weight = VALUES(total_weight),
+                
+                    order_status = VALUES(order_status),
+                
+                    order_time = VALUES(order_time),
+                
+                    remark = VALUES(remark),
+                
+                    refund_amount = VALUES(refund_amount),
+                
+                    pay_way_type = VALUES(pay_way_type),
+                
+                    pay_way_type_ID = VALUES(pay_way_type_ID),
+                
+                    yn = VALUES(yn),
+                
+        </trim>
+    </insert>
+
     <delete id="deleteById" parameterType="java.lang.Long">
         DELETE FROM order_master WHERE id = #{id}
     </delete>
@@ -483,103 +535,99 @@
         /* 订单master表 */
         <trim prefix="SET" prefixOverrides=",">
         
-            <if test="id != null">
-                ,id = #{id} /* 自动编号 */
-            </if>
-        
             <if test="orderKey != null">
-                ,order_key = #{orderKey} /* 全局唯一order_key */
+                ,order_key = #{orderKey}
             </if>
         
             <if test="userId != null">
-                ,user_id = #{userId} /* 用户id */
+                ,user_id = #{userId}
             </if>
         
             <if test="userName != null">
-                ,user_name = #{userName} /* 用户名称 */
+                ,user_name = #{userName}
             </if>
         
             <if test="sex != null">
-                ,sex = #{sex} /* 用户性别  0-未知   1-男  2-女 */
+                ,sex = #{sex}
             </if>
         
             <if test="phone != null">
-                ,phone = #{phone} /* 手机号 */
+                ,phone = #{phone}
             </if>
         
             <if test="channelKey != null">
-                ,channel_key = #{channelKey} /* 渠道key */
+                ,channel_key = #{channelKey}
             </if>
         
             <if test="channelName != null">
-                ,channel_Name = #{channelName} /* 渠道名称 */
+                ,channel_Name = #{channelName}
             </if>
         
             <if test="flowAmount != null">
-                ,flow_amount = #{flowAmount} /* 流水 */
+                ,flow_amount = #{flowAmount}
             </if>
         
             <if test="paidAmount != null">
-                ,paid_amount = #{paidAmount} /* 实收 */
+                ,paid_amount = #{paidAmount}
             </if>
         
             <if test="promotionAmount != null">
-                ,promotion_amount = #{promotionAmount} /* 优惠 */
+                ,promotion_amount = #{promotionAmount}
             </if>
         
             <if test="totalNumber != null">
-                ,total_number = #{totalNumber} /* 总数量 */
+                ,total_number = #{totalNumber}
             </if>
         
             <if test="totalWeight != null">
-                ,total_weight = #{totalWeight} /* 总重量（单位克） */
+                ,total_weight = #{totalWeight}
             </if>
         
             <if test="orderStatus != null">
-                ,order_status = #{orderStatus} /* 订单状态 40 已完成  30 作废  20 已退款 */
+                ,order_status = #{orderStatus}
             </if>
         
             <if test="orderTime != null">
-                ,order_time = #{orderTime} /* 订单时间，包含不限于预定时间、付款时间等,精确到分 */
+                ,order_time = #{orderTime}
             </if>
         
             <if test="remark != null">
-                ,remark = #{remark} /* 备注 */
+                ,remark = #{remark}
             </if>
         
             <if test="refundAmount != null">
-                ,refund_amount = #{refundAmount} /* 退款总金额 */
+                ,refund_amount = #{refundAmount}
             </if>
         
             <if test="payWayType != null">
-                ,pay_way_type = #{payWayType} /* 支付方式 */
+                ,pay_way_type = #{payWayType}
             </if>
         
             <if test="payWayTypeID != null">
-                ,pay_way_type_ID = #{payWayTypeID} /*  0 未知   1 支付宝   2 微信 */
+                ,pay_way_type_ID = #{payWayTypeID}
             </if>
         
             <if test="yn != null">
-                ,yn = #{yn} /* 数据状态 0-无效 1-有效 */
+                ,yn = #{yn}
             </if>
         
         </trim>
         WHERE
-        id = #{id}		/* id */
+        id = #{id}
     </update>
 
-    <select id="findById" parameterType="OrderMaster"  resultMap="baseResultMap">
+    <select id="findById" parameterType="java.lang.Long" resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
-        FROM   order_master  /* 订单master表 */
+        FROM  order_master  /* 订单master表 */
         WHERE
-        id = #{id}		/* id */
+        id = #{id}
     </select>
 
     <select id="getAllList" parameterType="com.openmall.order.utils.Query"  resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
-        FROM    order_master  /* 订单master表 */
+        FROM order_master  /* 订单master表 */
         WHERE 1 = 1
         <include refid="wherecontation"/>
         ORDER BY id DESC

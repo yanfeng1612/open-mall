@@ -14,7 +14,7 @@ import com.openmall.product.domain.auto.ProductCategoryQuery;
 /**
  * 商品分类表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface ProductCategoryService {
 
@@ -29,6 +29,12 @@ public interface ProductCategoryService {
      * @generated
      */
     BasicResult addBatch(List<ProductCategory> productCategoryList);
+
+    /**
+     *
+     * @generated
+     */
+    BasicResult addOrUpdate(ProductCategory productCategory);
 
     /**
      *
@@ -52,7 +58,7 @@ public interface ProductCategoryService {
      *
      * @generated
      */
-    ProductCategory searchProductCategoryById(ProductCategory productCategory);
+    ProductCategory searchProductCategoryById(Long id);
 
     /**
      *

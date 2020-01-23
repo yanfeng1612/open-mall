@@ -21,7 +21,7 @@ import com.openmall.product.service.auto.ProductBrandService;
 /**
  * 商品品牌表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @RestController
 @RequestMapping(value = "/productBrand", produces = "application/json; charset=utf-8")
@@ -77,6 +77,21 @@ public class ProductBrandController {
         return response;
     }
 
+    @RequestMapping(value = "/addOrUpdate")
+    public Response<ProductBrand> addOrUpdate(@RequestBody ProductBrand productBrand) {
+        Response<ProductBrand> response = new Response<>();
+        try {
+            BasicResult result = productBrandService.addOrUpdate(productBrand);
+            APIMsgCode apiMsgCode = CodeConverter.convert(result.getCode());
+            return ResponseTemplate.getResponse(apiMsgCode, null);
+        } catch (Exception e) {
+            response.setCode(APIMsgCode.FAILURE.getCode());
+            response.setMessage(APIMsgCode.FAILURE.getValue());
+            response.setStatus(APIEmRequestStatus.FAIL);
+        }
+        return response;
+    }
+
     /**
      * 查询数据列表
      */
@@ -98,14 +113,14 @@ public class ProductBrandController {
      * 查询数据详情
      */
     @RequestMapping(value = "/detail", method = {RequestMethod.POST,RequestMethod.GET})
-    public Response<ProductBrand> getProductBrandById(@RequestBody ProductBrand productBrand) {
-        LOG.info("查询参数 {}",productBrand) ;
+    public Response<ProductBrand> getProductBrandById(Long id) {
+        LOG.info("查询参数 {}",id) ;
         Response<ProductBrand> response = new Response<>();
         try {
-            ProductBrand result = productBrandService.searchProductBrandById(productBrand);
+            ProductBrand result = productBrandService.searchProductBrandById(id);
             return ResponseTemplate.getResponse(APIMsgCode.SUCCESS, result);
         } catch (Exception e) {
-            LOG.error("查询数据异常:{}",productBrand,e);
+            LOG.error("查询数据异常:{}",id,e);
             response = ResponseTemplate.FAILURE.getResponse(null);
         }
         return response;

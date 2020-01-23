@@ -21,7 +21,7 @@ import com.openmall.user.service.auto.UserService;
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Service("userService")
 public class UserServiceImpl implements UserService{
@@ -81,6 +81,36 @@ public class UserServiceImpl implements UserService{
             result.setCode(CodeEnum.FAILED.getCode());
             result.setMsg("未知异常" + e.getMessage());
             LOG.error("exception UserServiceImpl.addBatch param:" + JSON.toJSONString(userList),e);
+        }
+        return result;
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public BasicResult addOrUpdate(User user) {
+        LOG.info("request UserServiceImpl.addOrUpdate param:" + JSON.toJSONString(user));
+        BasicResult result = new BasicResult();
+        try {
+            if (user != null) {
+                userManagerImpl.insertOrUpdate(user);
+                result.setCode(CodeEnum.SUCCESS.getCode());
+                result.setMsg("保存成功");
+            } else {
+                result.setCode(CodeEnum.FAILED.getCode());
+                result.setMsg("user is null");
+                LOG.error("------UserServiceImpl.addUser - user is null!");
+            }
+        } catch (DuplicateKeyException e) {
+            result.setCode(CodeEnum.DUPLICATE.getCode());
+            result.setMsg(CodeEnum.DUPLICATE.getMessage());
+            LOG.error("------UserServiceImpl.addUser 异常",e);
+        } catch (Exception e) {
+            result.setCode(CodeEnum.FAILED.getCode());
+            result.setMsg("未知异常" + e.getMessage());
+            LOG.error("------UserServiceImpl.addUser 异常",e);
         }
         return result;
     }
@@ -173,9 +203,9 @@ public class UserServiceImpl implements UserService{
      * @generated
      */
     @Override
-    public User searchUserById(User user){
+    public User searchUserById(Long id){
         try {
-            return userManagerImpl.findById(user);
+            return userManagerImpl.findById(id);
         } catch (Exception e) {
             LOG.error("------UserServiceImpl.searchUserByPriKey 异常", e);
         }

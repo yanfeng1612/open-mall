@@ -20,7 +20,7 @@ import com.openmall.product.utils.*;
 /**
  * 商品基本属性表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Component("productManager")
 public class ProductManagerImpl implements ProductManager {
@@ -46,6 +46,15 @@ public class ProductManagerImpl implements ProductManager {
     @Override
     public int insertBatch(List<Product> productList){
         return productMapper.insertBatch(productList);
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public int insertOrUpdate(Product product){
+        return productMapper.insertOrUpdate(product);
     }
 
     /**
@@ -82,8 +91,8 @@ public class ProductManagerImpl implements ProductManager {
     }
 
     @Override
-    public Product findById(Product product){
-        return productMapper.findById(product);
+    public Product findById(Long id){
+        return productMapper.findById(id);
     }
 
     /**

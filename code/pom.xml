@@ -22,9 +22,8 @@
 		<java.version>1.8</java.version>
 		<encoding>UTF-8</encoding>
 		<springboot.version>2.0.8.RELEASE</springboot.version>
-		<springcloud.version>Finchley.BUILD-SNAPSHOT</springcloud.version>
+		<springcloud.version>Greenwich.SR2</springcloud.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>eurekademo.EurekaApplication</start-class>
 		<docker.image.prefix>springcloud</docker.image.prefix>
 	</properties>
 
@@ -59,6 +58,37 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<boot.profile>dev</boot.profile>
+				<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<boot.profile>test</boot.profile>
+			</properties>
+		</profile>
+		<profile>
+			<id>pre</id>
+			<properties>
+				<boot.profile>pre</boot.profile>
+			</properties>
+		</profile>
+		<profile>
+			<id>product</id>
+			<properties>
+				<boot.profile>product</boot.profile>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>

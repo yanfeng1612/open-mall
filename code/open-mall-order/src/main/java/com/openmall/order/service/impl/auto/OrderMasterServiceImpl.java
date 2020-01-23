@@ -21,7 +21,7 @@ import com.openmall.order.service.auto.OrderMasterService;
 /**
  * 订单master表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Service("orderMasterService")
 public class OrderMasterServiceImpl implements OrderMasterService{
@@ -81,6 +81,36 @@ public class OrderMasterServiceImpl implements OrderMasterService{
             result.setCode(CodeEnum.FAILED.getCode());
             result.setMsg("未知异常" + e.getMessage());
             LOG.error("exception OrderMasterServiceImpl.addBatch param:" + JSON.toJSONString(orderMasterList),e);
+        }
+        return result;
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public BasicResult addOrUpdate(OrderMaster orderMaster) {
+        LOG.info("request OrderMasterServiceImpl.addOrUpdate param:" + JSON.toJSONString(orderMaster));
+        BasicResult result = new BasicResult();
+        try {
+            if (orderMaster != null) {
+                orderMasterManagerImpl.insertOrUpdate(orderMaster);
+                result.setCode(CodeEnum.SUCCESS.getCode());
+                result.setMsg("保存成功");
+            } else {
+                result.setCode(CodeEnum.FAILED.getCode());
+                result.setMsg("orderMaster is null");
+                LOG.error("------OrderMasterServiceImpl.addOrderMaster - orderMaster is null!");
+            }
+        } catch (DuplicateKeyException e) {
+            result.setCode(CodeEnum.DUPLICATE.getCode());
+            result.setMsg(CodeEnum.DUPLICATE.getMessage());
+            LOG.error("------OrderMasterServiceImpl.addOrderMaster 异常",e);
+        } catch (Exception e) {
+            result.setCode(CodeEnum.FAILED.getCode());
+            result.setMsg("未知异常" + e.getMessage());
+            LOG.error("------OrderMasterServiceImpl.addOrderMaster 异常",e);
         }
         return result;
     }
@@ -173,9 +203,9 @@ public class OrderMasterServiceImpl implements OrderMasterService{
      * @generated
      */
     @Override
-    public OrderMaster searchOrderMasterById(OrderMaster orderMaster){
+    public OrderMaster searchOrderMasterById(Long id){
         try {
-            return orderMasterManagerImpl.findById(orderMaster);
+            return orderMasterManagerImpl.findById(id);
         } catch (Exception e) {
             LOG.error("------OrderMasterServiceImpl.searchOrderMasterByPriKey 异常", e);
         }

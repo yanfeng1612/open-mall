@@ -10,7 +10,7 @@ import com.openmall.product.utils.*;
 /**
  * 商品分类表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface ProductCategoryMapper {
 
@@ -30,6 +30,12 @@ public interface ProductCategoryMapper {
      *
      * @auto generated
      */
+    int insertOrUpdate(ProductCategory productCategory);
+
+    /**
+     *
+     * @auto generated
+     */
     int deleteById(long id);
 
     /**
@@ -42,7 +48,7 @@ public interface ProductCategoryMapper {
      *
      * @auto generated
      */
-    ProductCategory findById(ProductCategory productCategory);
+    ProductCategory findById(Long id);
 
     /**
      *

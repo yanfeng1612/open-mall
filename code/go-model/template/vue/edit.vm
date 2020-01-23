@@ -65,7 +65,7 @@
                 this.$refs["formData"].validate((valid) => {
                     if (valid) {
                         requestData({
-                            "url": "/api/{{.backendObject.JavaBeanNameLower}}/updateById",
+                            "url": "/api/{{.backendObject.JavaBeanNameLower}}/addOrUpdate",
                             "data": this.formData
                             , "callback": function (redata) {
                                 self.$message({

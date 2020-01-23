@@ -6,7 +6,7 @@ module.exports = {
         proxy: {
             '/api':{
                 // target:'http://jsonplaceholder.typicode.com',
-                target:'http://localhost:9000/',
+                target:'http://admin-gateway.open-mall.com:9000/',
                 changeOrigin:true,
                 pathRewrite:{
                     '/api':''

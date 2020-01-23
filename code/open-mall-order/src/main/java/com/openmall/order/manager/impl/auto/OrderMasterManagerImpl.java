@@ -20,7 +20,7 @@ import com.openmall.order.utils.*;
 /**
  * 订单master表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Component("orderMasterManager")
 public class OrderMasterManagerImpl implements OrderMasterManager {
@@ -46,6 +46,15 @@ public class OrderMasterManagerImpl implements OrderMasterManager {
     @Override
     public int insertBatch(List<OrderMaster> orderMasterList){
         return orderMasterMapper.insertBatch(orderMasterList);
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public int insertOrUpdate(OrderMaster orderMaster){
+        return orderMasterMapper.insertOrUpdate(orderMaster);
     }
 
     /**
@@ -82,8 +91,8 @@ public class OrderMasterManagerImpl implements OrderMasterManager {
     }
 
     @Override
-    public OrderMaster findById(OrderMaster orderMaster){
-        return orderMasterMapper.findById(orderMaster);
+    public OrderMaster findById(Long id){
+        return orderMasterMapper.findById(id);
     }
 
     /**

@@ -8,7 +8,7 @@ import lombok.Data;
 /**
  * 商品品牌表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Data
 public class ProductBrand implements java.io.Serializable {

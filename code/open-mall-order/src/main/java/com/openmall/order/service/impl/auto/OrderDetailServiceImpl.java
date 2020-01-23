@@ -21,7 +21,7 @@ import com.openmall.order.service.auto.OrderDetailService;
 /**
  * 订单明细表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Service("orderDetailService")
 public class OrderDetailServiceImpl implements OrderDetailService{
@@ -81,6 +81,36 @@ public class OrderDetailServiceImpl implements OrderDetailService{
             result.setCode(CodeEnum.FAILED.getCode());
             result.setMsg("未知异常" + e.getMessage());
             LOG.error("exception OrderDetailServiceImpl.addBatch param:" + JSON.toJSONString(orderDetailList),e);
+        }
+        return result;
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public BasicResult addOrUpdate(OrderDetail orderDetail) {
+        LOG.info("request OrderDetailServiceImpl.addOrUpdate param:" + JSON.toJSONString(orderDetail));
+        BasicResult result = new BasicResult();
+        try {
+            if (orderDetail != null) {
+                orderDetailManagerImpl.insertOrUpdate(orderDetail);
+                result.setCode(CodeEnum.SUCCESS.getCode());
+                result.setMsg("保存成功");
+            } else {
+                result.setCode(CodeEnum.FAILED.getCode());
+                result.setMsg("orderDetail is null");
+                LOG.error("------OrderDetailServiceImpl.addOrderDetail - orderDetail is null!");
+            }
+        } catch (DuplicateKeyException e) {
+            result.setCode(CodeEnum.DUPLICATE.getCode());
+            result.setMsg(CodeEnum.DUPLICATE.getMessage());
+            LOG.error("------OrderDetailServiceImpl.addOrderDetail 异常",e);
+        } catch (Exception e) {
+            result.setCode(CodeEnum.FAILED.getCode());
+            result.setMsg("未知异常" + e.getMessage());
+            LOG.error("------OrderDetailServiceImpl.addOrderDetail 异常",e);
         }
         return result;
     }
@@ -173,9 +203,9 @@ public class OrderDetailServiceImpl implements OrderDetailService{
      * @generated
      */
     @Override
-    public OrderDetail searchOrderDetailById(OrderDetail orderDetail){
+    public OrderDetail searchOrderDetailById(Long id){
         try {
-            return orderDetailManagerImpl.findById(orderDetail);
+            return orderDetailManagerImpl.findById(id);
         } catch (Exception e) {
             LOG.error("------OrderDetailServiceImpl.searchOrderDetailByPriKey 异常", e);
         }

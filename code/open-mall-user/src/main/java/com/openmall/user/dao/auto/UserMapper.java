@@ -10,7 +10,7 @@ import com.openmall.user.utils.*;
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface UserMapper {
 
@@ -30,6 +30,12 @@ public interface UserMapper {
      *
      * @auto generated
      */
+    int insertOrUpdate(User user);
+
+    /**
+     *
+     * @auto generated
+     */
     int deleteById(long id);
 
     /**
@@ -42,7 +48,7 @@ public interface UserMapper {
      *
      * @auto generated
      */
-    User findById(User user);
+    User findById(Long id);
 
     /**
      *

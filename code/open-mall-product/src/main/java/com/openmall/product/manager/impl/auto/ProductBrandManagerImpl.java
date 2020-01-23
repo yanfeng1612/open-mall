@@ -20,7 +20,7 @@ import com.openmall.product.utils.*;
 /**
  * 商品品牌表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Component("productBrandManager")
 public class ProductBrandManagerImpl implements ProductBrandManager {
@@ -46,6 +46,15 @@ public class ProductBrandManagerImpl implements ProductBrandManager {
     @Override
     public int insertBatch(List<ProductBrand> productBrandList){
         return productBrandMapper.insertBatch(productBrandList);
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public int insertOrUpdate(ProductBrand productBrand){
+        return productBrandMapper.insertOrUpdate(productBrand);
     }
 
     /**
@@ -82,8 +91,8 @@ public class ProductBrandManagerImpl implements ProductBrandManager {
     }
 
     @Override
-    public ProductBrand findById(ProductBrand productBrand){
-        return productBrandMapper.findById(productBrand);
+    public ProductBrand findById(Long id){
+        return productBrandMapper.findById(id);
     }
 
     /**

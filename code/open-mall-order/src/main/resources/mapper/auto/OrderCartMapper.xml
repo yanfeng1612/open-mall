@@ -27,37 +27,37 @@
     <sql id="queryColumns">
         <trim prefixOverrides=",">
         
-            ,id	/* 自动编号 */
+            ,id
         
-            ,user_id	/* 用户id */
+            ,user_id
         
-            ,product_id	/* 商品id */
+            ,product_id
         
-            ,product_name	/* 商品名称 */
+            ,product_name
         
-            ,unit	/* 商品单位 */
+            ,unit
         
-            ,categroy_id	/* 商品分类id */
+            ,categroy_id
         
-            ,categroy_name	/* 商品分类名称 */
+            ,categroy_name
         
-            ,brand_id	/* 商品品牌id */
+            ,brand_id
         
-            ,brand_name	/* 商品品牌名称 */
+            ,brand_name
         
-            ,product_count	/* 数量 */
+            ,product_count
         
-            ,price	/* 售价 */
+            ,price
         
-            ,total_amount	/* 总价 */
+            ,total_amount
         
-            ,remark	/* 备注 */
+            ,remark
         
-            ,yn	/* 数据状态 0-无效 1-有效 */
+            ,yn
         
-            ,created_time	/* 创建时间 */
+            ,created_time
         
-            ,modified_time	/* 修改时间 */
+            ,modified_time
         
         </trim>
     </sql>
@@ -66,67 +66,67 @@
         <if test="query!= null">
         
             <if test="query.id != null">
-                and id = #{query.id} /* 自动编号 */
+                and id = #{query.id}
             </if>
         
             <if test="query.userId != null">
-                and user_id = #{query.userId} /* 用户id */
+                and user_id = #{query.userId}
             </if>
         
             <if test="query.productId != null">
-                and product_id = #{query.productId} /* 商品id */
+                and product_id = #{query.productId}
             </if>
         
             <if test="query.productName != null and query.productName != ''">
-                and product_name = #{query.productName} /* 商品名称 */
+                and product_name = #{query.productName}
             </if>
         
             <if test="query.unit != null and query.unit != ''">
-                and unit = #{query.unit} /* 商品单位 */
+                and unit = #{query.unit}
             </if>
         
             <if test="query.categroyId != null">
-                and categroy_id = #{query.categroyId} /* 商品分类id */
+                and categroy_id = #{query.categroyId}
             </if>
         
             <if test="query.categroyName != null and query.categroyName != ''">
-                and categroy_name = #{query.categroyName} /* 商品分类名称 */
+                and categroy_name = #{query.categroyName}
             </if>
         
             <if test="query.brandId != null">
-                and brand_id = #{query.brandId} /* 商品品牌id */
+                and brand_id = #{query.brandId}
             </if>
         
             <if test="query.brandName != null and query.brandName != ''">
-                and brand_name = #{query.brandName} /* 商品品牌名称 */
+                and brand_name = #{query.brandName}
             </if>
         
             <if test="query.productCount != null">
-                and product_count = #{query.productCount} /* 数量 */
+                and product_count = #{query.productCount}
             </if>
         
             <if test="query.price != null">
-                and price = #{query.price} /* 售价 */
+                and price = #{query.price}
             </if>
         
             <if test="query.totalAmount != null">
-                and total_amount = #{query.totalAmount} /* 总价 */
+                and total_amount = #{query.totalAmount}
             </if>
         
             <if test="query.remark != null and query.remark != ''">
-                and remark = #{query.remark} /* 备注 */
+                and remark = #{query.remark}
             </if>
         
             <if test="query.yn != null">
-                and yn = #{query.yn} /* 数据状态 0-无效 1-有效 */
+                and yn = #{query.yn}
             </if>
         
             <if test="query.createdTime != null">
-                and created_time = #{query.createdTime} /* 创建时间 */
+                and created_time = #{query.createdTime}
             </if>
         
             <if test="query.modifiedTime != null">
-                and modified_time = #{query.modifiedTime} /* 修改时间 */
+                and modified_time = #{query.modifiedTime}
             </if>
         
         </if>
@@ -136,67 +136,67 @@
         <trim prefixOverrides=",">
         
         <if test="id != null">
-            ,id /* 自动编号 */
+            ,id
         </if>
         
         <if test="userId != null">
-            ,user_id /* 用户id */
+            ,user_id
         </if>
         
         <if test="productId != null">
-            ,product_id /* 商品id */
+            ,product_id
         </if>
         
         <if test="productName != null">
-            ,product_name /* 商品名称 */
+            ,product_name
         </if>
         
         <if test="unit != null">
-            ,unit /* 商品单位 */
+            ,unit
         </if>
         
         <if test="categroyId != null">
-            ,categroy_id /* 商品分类id */
+            ,categroy_id
         </if>
         
         <if test="categroyName != null">
-            ,categroy_name /* 商品分类名称 */
+            ,categroy_name
         </if>
         
         <if test="brandId != null">
-            ,brand_id /* 商品品牌id */
+            ,brand_id
         </if>
         
         <if test="brandName != null">
-            ,brand_name /* 商品品牌名称 */
+            ,brand_name
         </if>
         
         <if test="productCount != null">
-            ,product_count /* 数量 */
+            ,product_count
         </if>
         
         <if test="price != null">
-            ,price /* 售价 */
+            ,price
         </if>
         
         <if test="totalAmount != null">
-            ,total_amount /* 总价 */
+            ,total_amount
         </if>
         
         <if test="remark != null">
-            ,remark /* 备注 */
+            ,remark
         </if>
         
         <if test="yn != null">
-            ,yn /* 数据状态 0-无效 1-有效 */
+            ,yn
         </if>
         
         <if test="createdTime != null">
-            ,created_time /* 创建时间 */
+            ,created_time
         </if>
         
         <if test="modifiedTime != null">
-            ,modified_time /* 修改时间 */
+            ,modified_time
         </if>
         
         </trim>
@@ -206,67 +206,67 @@
         <trim prefixOverrides=",">
         
         <if test="id != null">
-            ,#id /* 自动编号 */
+            ,#{id}
         </if>
         
         <if test="userId != null">
-            ,#userId /* 用户id */
+            ,#{userId}
         </if>
         
         <if test="productId != null">
-            ,#productId /* 商品id */
+            ,#{productId}
         </if>
         
         <if test="productName != null">
-            ,#productName /* 商品名称 */
+            ,#{productName}
         </if>
         
         <if test="unit != null">
-            ,#unit /* 商品单位 */
+            ,#{unit}
         </if>
         
         <if test="categroyId != null">
-            ,#categroyId /* 商品分类id */
+            ,#{categroyId}
         </if>
         
         <if test="categroyName != null">
-            ,#categroyName /* 商品分类名称 */
+            ,#{categroyName}
         </if>
         
         <if test="brandId != null">
-            ,#brandId /* 商品品牌id */
+            ,#{brandId}
         </if>
         
         <if test="brandName != null">
-            ,#brandName /* 商品品牌名称 */
+            ,#{brandName}
         </if>
         
         <if test="productCount != null">
-            ,#productCount /* 数量 */
+            ,#{productCount}
         </if>
         
         <if test="price != null">
-            ,#price /* 售价 */
+            ,#{price}
         </if>
         
         <if test="totalAmount != null">
-            ,#totalAmount /* 总价 */
+            ,#{totalAmount}
         </if>
         
         <if test="remark != null">
-            ,#remark /* 备注 */
+            ,#{remark}
         </if>
         
         <if test="yn != null">
-            ,#yn /* 数据状态 0-无效 1-有效 */
+            ,#{yn}
         </if>
         
         <if test="createdTime != null">
-            ,#createdTime /* 创建时间 */
+            ,#{createdTime}
         </if>
         
         <if test="modifiedTime != null">
-            ,#modifiedTime /* 修改时间 */
+            ,#{modifiedTime}
         </if>
         
         </trim>
@@ -360,6 +360,46 @@
         </foreach>
     </insert>
 
+    <insert id="insertOrUpdate" parameterType="OrderCart"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        /* 订单购物车 */
+        INSERT  INTO  order_cart
+        (
+            <include refid="getInsertField" />
+        )
+        VALUES (
+            <include refid="getInsertFieldValue" />
+        ) ON DUPLICATE KEY
+        <trim prefix="UPDATE" suffixOverrides=",">
+            
+                    user_id = VALUES(user_id),
+                
+                    product_id = VALUES(product_id),
+                
+                    product_name = VALUES(product_name),
+                
+                    unit = VALUES(unit),
+                
+                    categroy_id = VALUES(categroy_id),
+                
+                    categroy_name = VALUES(categroy_name),
+                
+                    brand_id = VALUES(brand_id),
+                
+                    brand_name = VALUES(brand_name),
+                
+                    product_count = VALUES(product_count),
+                
+                    price = VALUES(price),
+                
+                    total_amount = VALUES(total_amount),
+                
+                    remark = VALUES(remark),
+                
+                    yn = VALUES(yn),
+                
+        </trim>
+    </insert>
+
     <delete id="deleteById" parameterType="java.lang.Long">
         DELETE FROM order_cart WHERE id = #{id}
     </delete>
@@ -369,79 +409,75 @@
         /* 订单购物车 */
         <trim prefix="SET" prefixOverrides=",">
         
-            <if test="id != null">
-                ,id = #{id} /* 自动编号 */
-            </if>
-        
             <if test="userId != null">
-                ,user_id = #{userId} /* 用户id */
+                ,user_id = #{userId}
             </if>
         
             <if test="productId != null">
-                ,product_id = #{productId} /* 商品id */
+                ,product_id = #{productId}
             </if>
         
             <if test="productName != null">
-                ,product_name = #{productName} /* 商品名称 */
+                ,product_name = #{productName}
             </if>
         
             <if test="unit != null">
-                ,unit = #{unit} /* 商品单位 */
+                ,unit = #{unit}
             </if>
         
             <if test="categroyId != null">
-                ,categroy_id = #{categroyId} /* 商品分类id */
+                ,categroy_id = #{categroyId}
             </if>
         
             <if test="categroyName != null">
-                ,categroy_name = #{categroyName} /* 商品分类名称 */
+                ,categroy_name = #{categroyName}
             </if>
         
             <if test="brandId != null">
-                ,brand_id = #{brandId} /* 商品品牌id */
+                ,brand_id = #{brandId}
             </if>
         
             <if test="brandName != null">
-                ,brand_name = #{brandName} /* 商品品牌名称 */
+                ,brand_name = #{brandName}
             </if>
         
             <if test="productCount != null">
-                ,product_count = #{productCount} /* 数量 */
+                ,product_count = #{productCount}
             </if>
         
             <if test="price != null">
-                ,price = #{price} /* 售价 */
+                ,price = #{price}
             </if>
         
             <if test="totalAmount != null">
-                ,total_amount = #{totalAmount} /* 总价 */
+                ,total_amount = #{totalAmount}
             </if>
         
             <if test="remark != null">
-                ,remark = #{remark} /* 备注 */
+                ,remark = #{remark}
             </if>
         
             <if test="yn != null">
-                ,yn = #{yn} /* 数据状态 0-无效 1-有效 */
+                ,yn = #{yn}
             </if>
         
         </trim>
         WHERE
-        id = #{id}		/* id */
+        id = #{id}
     </update>
 
-    <select id="findById" parameterType="OrderCart"  resultMap="baseResultMap">
+    <select id="findById" parameterType="java.lang.Long" resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
-        FROM   order_cart  /* 订单购物车 */
+        FROM  order_cart  /* 订单购物车 */
         WHERE
-        id = #{id}		/* id */
+        id = #{id}
     </select>
 
     <select id="getAllList" parameterType="com.openmall.order.utils.Query"  resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
-        FROM    order_cart  /* 订单购物车 */
+        FROM order_cart  /* 订单购物车 */
         WHERE 1 = 1
         <include refid="wherecontation"/>
         ORDER BY id DESC

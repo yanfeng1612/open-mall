@@ -14,7 +14,7 @@ import com.openmall.product.domain.auto.ProductBrandQuery;
 /**
  * 商品品牌表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface ProductBrandService {
 
@@ -29,6 +29,12 @@ public interface ProductBrandService {
      * @generated
      */
     BasicResult addBatch(List<ProductBrand> productBrandList);
+
+    /**
+     *
+     * @generated
+     */
+    BasicResult addOrUpdate(ProductBrand productBrand);
 
     /**
      *
@@ -52,7 +58,7 @@ public interface ProductBrandService {
      *
      * @generated
      */
-    ProductBrand searchProductBrandById(ProductBrand productBrand);
+    ProductBrand searchProductBrandById(Long id);
 
     /**
      *

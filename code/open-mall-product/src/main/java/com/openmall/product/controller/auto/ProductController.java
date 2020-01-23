@@ -21,7 +21,7 @@ import com.openmall.product.service.auto.ProductService;
 /**
  * 商品基本属性表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @RestController
 @RequestMapping(value = "/product", produces = "application/json; charset=utf-8")
@@ -77,6 +77,21 @@ public class ProductController {
         return response;
     }
 
+    @RequestMapping(value = "/addOrUpdate")
+    public Response<Product> addOrUpdate(@RequestBody Product product) {
+        Response<Product> response = new Response<>();
+        try {
+            BasicResult result = productService.addOrUpdate(product);
+            APIMsgCode apiMsgCode = CodeConverter.convert(result.getCode());
+            return ResponseTemplate.getResponse(apiMsgCode, null);
+        } catch (Exception e) {
+            response.setCode(APIMsgCode.FAILURE.getCode());
+            response.setMessage(APIMsgCode.FAILURE.getValue());
+            response.setStatus(APIEmRequestStatus.FAIL);
+        }
+        return response;
+    }
+
     /**
      * 查询数据列表
      */
@@ -98,14 +113,14 @@ public class ProductController {
      * 查询数据详情
      */
     @RequestMapping(value = "/detail", method = {RequestMethod.POST,RequestMethod.GET})
-    public Response<Product> getProductById(@RequestBody Product product) {
-        LOG.info("查询参数 {}",product) ;
+    public Response<Product> getProductById(Long id) {
+        LOG.info("查询参数 {}",id) ;
         Response<Product> response = new Response<>();
         try {
-            Product result = productService.searchProductById(product);
+            Product result = productService.searchProductById(id);
             return ResponseTemplate.getResponse(APIMsgCode.SUCCESS, result);
         } catch (Exception e) {
-            LOG.error("查询数据异常:{}",product,e);
+            LOG.error("查询数据异常:{}",id,e);
             response = ResponseTemplate.FAILURE.getResponse(null);
         }
         return response;

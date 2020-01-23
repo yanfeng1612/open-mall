@@ -20,7 +20,7 @@ import com.openmall.order.utils.*;
 /**
  * 订单购物车
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Component("orderCartManager")
 public class OrderCartManagerImpl implements OrderCartManager {
@@ -46,6 +46,15 @@ public class OrderCartManagerImpl implements OrderCartManager {
     @Override
     public int insertBatch(List<OrderCart> orderCartList){
         return orderCartMapper.insertBatch(orderCartList);
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public int insertOrUpdate(OrderCart orderCart){
+        return orderCartMapper.insertOrUpdate(orderCart);
     }
 
     /**
@@ -82,8 +91,8 @@ public class OrderCartManagerImpl implements OrderCartManager {
     }
 
     @Override
-    public OrderCart findById(OrderCart orderCart){
-        return orderCartMapper.findById(orderCart);
+    public OrderCart findById(Long id){
+        return orderCartMapper.findById(id);
     }
 
     /**

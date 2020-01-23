@@ -8,7 +8,7 @@ import lombok.Data;
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Data
 public class User implements java.io.Serializable {

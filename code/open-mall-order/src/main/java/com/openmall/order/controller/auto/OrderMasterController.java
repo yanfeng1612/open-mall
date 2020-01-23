@@ -21,7 +21,7 @@ import com.openmall.order.service.auto.OrderMasterService;
 /**
  * 订单master表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @RestController
 @RequestMapping(value = "/orderMaster", produces = "application/json; charset=utf-8")
@@ -77,6 +77,21 @@ public class OrderMasterController {
         return response;
     }
 
+    @RequestMapping(value = "/addOrUpdate")
+    public Response<OrderMaster> addOrUpdate(@RequestBody OrderMaster orderMaster) {
+        Response<OrderMaster> response = new Response<>();
+        try {
+            BasicResult result = orderMasterService.addOrUpdate(orderMaster);
+            APIMsgCode apiMsgCode = CodeConverter.convert(result.getCode());
+            return ResponseTemplate.getResponse(apiMsgCode, null);
+        } catch (Exception e) {
+            response.setCode(APIMsgCode.FAILURE.getCode());
+            response.setMessage(APIMsgCode.FAILURE.getValue());
+            response.setStatus(APIEmRequestStatus.FAIL);
+        }
+        return response;
+    }
+
     /**
      * 查询数据列表
      */
@@ -98,14 +113,14 @@ public class OrderMasterController {
      * 查询数据详情
      */
     @RequestMapping(value = "/detail", method = {RequestMethod.POST,RequestMethod.GET})
-    public Response<OrderMaster> getOrderMasterById(@RequestBody OrderMaster orderMaster) {
-        LOG.info("查询参数 {}",orderMaster) ;
+    public Response<OrderMaster> getOrderMasterById(Long id) {
+        LOG.info("查询参数 {}",id) ;
         Response<OrderMaster> response = new Response<>();
         try {
-            OrderMaster result = orderMasterService.searchOrderMasterById(orderMaster);
+            OrderMaster result = orderMasterService.searchOrderMasterById(id);
             return ResponseTemplate.getResponse(APIMsgCode.SUCCESS, result);
         } catch (Exception e) {
-            LOG.error("查询数据异常:{}",orderMaster,e);
+            LOG.error("查询数据异常:{}",id,e);
             response = ResponseTemplate.FAILURE.getResponse(null);
         }
         return response;
