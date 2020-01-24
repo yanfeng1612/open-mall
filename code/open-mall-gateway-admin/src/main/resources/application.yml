@@ -2,12 +2,12 @@ spring:
   application:
     name: open-mall-gateway-admin
 
-  profiles:
-    active:@boot.profile@
-
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
           lower-case-service-id: true
+
+  profiles:
+    active: @boot.profile@
