@@ -60,6 +60,38 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<boot.profile>dev</boot.profile>
+				<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<boot.profile>test</boot.profile>
+			</properties>
+		</profile>
+		<profile>
+			<id>pre</id>
+			<properties>
+				<boot.profile>pre</boot.profile>
+			</properties>
+		</profile>
+		<profile>
+			<!-- 生产环境 -->
+			<id>product</id>
+			<properties>
+				<boot.profile>product</boot.profile>
+			</properties>
+		</profile>
+	</profiles>
+
 	<build>
 		<plugins>
 			<plugin>

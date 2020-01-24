@@ -35,8 +35,18 @@
 
             <el-row>
                 <el-col :span="8">
-                    <el-form-item label="商品分类id：" prop="商品分类id">
-                        <el-input v-model="formData.categroyId" placeholder="categroyId"></el-input>
+<!--                    <el-form-item label="商品分类id：" prop="商品分类id">-->
+<!--                        <el-input v-model="formData.categroyId" placeholder="categroyId"></el-input>-->
+<!--                    </el-form-item>-->
+                    <el-form-item label="商品分类id：">
+                        <el-select v-model="form.categroyId" placeholder="请选择">
+                            <el-option
+                                    v-for="item in categoryList"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                            </el-option>
+                        </el-select>
                     </el-form-item>
                 </el-col>
             </el-row>
@@ -175,10 +185,19 @@
                 oldData: null,
                 isInactive: false,
                 formData: {},
-                rules: {}
+                rules: {},
+                categoryList : []
             }
         },
         created() {
+            requestData({
+                "url": "/api/open-mall-product/productCategory/list",
+                "data": {yn:1},
+                "callback": function (responseData) {
+                    // self.formData = responseData;
+                    console.log(responseData);
+                }
+            });
             this.getData();
         },
         methods: {
