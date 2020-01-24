@@ -21,7 +21,7 @@ import com.openmall.product.service.auto.ProductService;
 /**
  * 商品基本属性表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Service("productService")
 public class ProductServiceImpl implements ProductService{
@@ -81,6 +81,36 @@ public class ProductServiceImpl implements ProductService{
             result.setCode(CodeEnum.FAILED.getCode());
             result.setMsg("未知异常" + e.getMessage());
             LOG.error("exception ProductServiceImpl.addBatch param:" + JSON.toJSONString(productList),e);
+        }
+        return result;
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public BasicResult addOrUpdate(Product product) {
+        LOG.info("request ProductServiceImpl.addOrUpdate param:" + JSON.toJSONString(product));
+        BasicResult result = new BasicResult();
+        try {
+            if (product != null) {
+                productManagerImpl.insertOrUpdate(product);
+                result.setCode(CodeEnum.SUCCESS.getCode());
+                result.setMsg("保存成功");
+            } else {
+                result.setCode(CodeEnum.FAILED.getCode());
+                result.setMsg("product is null");
+                LOG.error("------ProductServiceImpl.addProduct - product is null!");
+            }
+        } catch (DuplicateKeyException e) {
+            result.setCode(CodeEnum.DUPLICATE.getCode());
+            result.setMsg(CodeEnum.DUPLICATE.getMessage());
+            LOG.error("------ProductServiceImpl.addProduct 异常",e);
+        } catch (Exception e) {
+            result.setCode(CodeEnum.FAILED.getCode());
+            result.setMsg("未知异常" + e.getMessage());
+            LOG.error("------ProductServiceImpl.addProduct 异常",e);
         }
         return result;
     }
@@ -173,9 +203,9 @@ public class ProductServiceImpl implements ProductService{
      * @generated
      */
     @Override
-    public Product searchProductById(Product product){
+    public Product searchProductById(Long id){
         try {
-            return productManagerImpl.findById(product);
+            return productManagerImpl.findById(id);
         } catch (Exception e) {
             LOG.error("------ProductServiceImpl.searchProductByPriKey 异常", e);
         }

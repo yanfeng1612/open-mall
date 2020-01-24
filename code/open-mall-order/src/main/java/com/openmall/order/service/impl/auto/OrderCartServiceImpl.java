@@ -21,7 +21,7 @@ import com.openmall.order.service.auto.OrderCartService;
 /**
  * 订单购物车
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Service("orderCartService")
 public class OrderCartServiceImpl implements OrderCartService{
@@ -81,6 +81,36 @@ public class OrderCartServiceImpl implements OrderCartService{
             result.setCode(CodeEnum.FAILED.getCode());
             result.setMsg("未知异常" + e.getMessage());
             LOG.error("exception OrderCartServiceImpl.addBatch param:" + JSON.toJSONString(orderCartList),e);
+        }
+        return result;
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public BasicResult addOrUpdate(OrderCart orderCart) {
+        LOG.info("request OrderCartServiceImpl.addOrUpdate param:" + JSON.toJSONString(orderCart));
+        BasicResult result = new BasicResult();
+        try {
+            if (orderCart != null) {
+                orderCartManagerImpl.insertOrUpdate(orderCart);
+                result.setCode(CodeEnum.SUCCESS.getCode());
+                result.setMsg("保存成功");
+            } else {
+                result.setCode(CodeEnum.FAILED.getCode());
+                result.setMsg("orderCart is null");
+                LOG.error("------OrderCartServiceImpl.addOrderCart - orderCart is null!");
+            }
+        } catch (DuplicateKeyException e) {
+            result.setCode(CodeEnum.DUPLICATE.getCode());
+            result.setMsg(CodeEnum.DUPLICATE.getMessage());
+            LOG.error("------OrderCartServiceImpl.addOrderCart 异常",e);
+        } catch (Exception e) {
+            result.setCode(CodeEnum.FAILED.getCode());
+            result.setMsg("未知异常" + e.getMessage());
+            LOG.error("------OrderCartServiceImpl.addOrderCart 异常",e);
         }
         return result;
     }
@@ -173,9 +203,9 @@ public class OrderCartServiceImpl implements OrderCartService{
      * @generated
      */
     @Override
-    public OrderCart searchOrderCartById(OrderCart orderCart){
+    public OrderCart searchOrderCartById(Long id){
         try {
-            return orderCartManagerImpl.findById(orderCart);
+            return orderCartManagerImpl.findById(id);
         } catch (Exception e) {
             LOG.error("------OrderCartServiceImpl.searchOrderCartByPriKey 异常", e);
         }

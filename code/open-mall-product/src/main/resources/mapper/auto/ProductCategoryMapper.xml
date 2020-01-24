@@ -18,19 +18,19 @@
     <sql id="queryColumns">
         <trim prefixOverrides=",">
         
-            ,id	/* 自动编号 */
+            ,id
         
-            ,categroy_name	/* 商品分类名称 */
+            ,categroy_name
         
-            ,description	/* 分类描述 */
+            ,description
         
-            ,rank	/* 排序 */
+            ,rank
         
-            ,yn	/* 数据状态 0-无效 1-有效 */
+            ,yn
         
-            ,created_time	/* 创建时间 */
+            ,created_time
         
-            ,modified_time	/* 修改时间 */
+            ,modified_time
         
         </trim>
     </sql>
@@ -39,31 +39,31 @@
         <if test="query!= null">
         
             <if test="query.id != null">
-                and id = #{query.id} /* 自动编号 */
+                and id = #{query.id}
             </if>
         
             <if test="query.categroyName != null and query.categroyName != ''">
-                and categroy_name = #{query.categroyName} /* 商品分类名称 */
+                and categroy_name = #{query.categroyName}
             </if>
         
             <if test="query.description != null and query.description != ''">
-                and description = #{query.description} /* 分类描述 */
+                and description = #{query.description}
             </if>
         
             <if test="query.rank != null">
-                and rank = #{query.rank} /* 排序 */
+                and rank = #{query.rank}
             </if>
         
             <if test="query.yn != null">
-                and yn = #{query.yn} /* 数据状态 0-无效 1-有效 */
+                and yn = #{query.yn}
             </if>
         
             <if test="query.createdTime != null">
-                and created_time = #{query.createdTime} /* 创建时间 */
+                and created_time = #{query.createdTime}
             </if>
         
             <if test="query.modifiedTime != null">
-                and modified_time = #{query.modifiedTime} /* 修改时间 */
+                and modified_time = #{query.modifiedTime}
             </if>
         
         </if>
@@ -73,31 +73,31 @@
         <trim prefixOverrides=",">
         
         <if test="id != null">
-            ,id /* 自动编号 */
+            ,id
         </if>
         
         <if test="categroyName != null">
-            ,categroy_name /* 商品分类名称 */
+            ,categroy_name
         </if>
         
         <if test="description != null">
-            ,description /* 分类描述 */
+            ,description
         </if>
         
         <if test="rank != null">
-            ,rank /* 排序 */
+            ,rank
         </if>
         
         <if test="yn != null">
-            ,yn /* 数据状态 0-无效 1-有效 */
+            ,yn
         </if>
         
         <if test="createdTime != null">
-            ,created_time /* 创建时间 */
+            ,created_time
         </if>
         
         <if test="modifiedTime != null">
-            ,modified_time /* 修改时间 */
+            ,modified_time
         </if>
         
         </trim>
@@ -107,31 +107,31 @@
         <trim prefixOverrides=",">
         
         <if test="id != null">
-            ,#id /* 自动编号 */
+            ,#{id}
         </if>
         
         <if test="categroyName != null">
-            ,#categroyName /* 商品分类名称 */
+            ,#{categroyName}
         </if>
         
         <if test="description != null">
-            ,#description /* 分类描述 */
+            ,#{description}
         </if>
         
         <if test="rank != null">
-            ,#rank /* 排序 */
+            ,#{rank}
         </if>
         
         <if test="yn != null">
-            ,#yn /* 数据状态 0-无效 1-有效 */
+            ,#{yn}
         </if>
         
         <if test="createdTime != null">
-            ,#createdTime /* 创建时间 */
+            ,#{createdTime}
         </if>
         
         <if test="modifiedTime != null">
-            ,#modifiedTime /* 修改时间 */
+            ,#{modifiedTime}
         </if>
         
         </trim>
@@ -189,6 +189,28 @@
         </foreach>
     </insert>
 
+    <insert id="insertOrUpdate" parameterType="ProductCategory"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        /* 商品分类表 */
+        INSERT  INTO  product_category
+        (
+            <include refid="getInsertField" />
+        )
+        VALUES (
+            <include refid="getInsertFieldValue" />
+        ) ON DUPLICATE KEY
+        <trim prefix="UPDATE" suffixOverrides=",">
+            
+                    categroy_name = VALUES(categroy_name),
+                
+                    description = VALUES(description),
+                
+                    rank = VALUES(rank),
+                
+                    yn = VALUES(yn),
+                
+        </trim>
+    </insert>
+
     <delete id="deleteById" parameterType="java.lang.Long">
         DELETE FROM product_category WHERE id = #{id}
     </delete>
@@ -198,43 +220,39 @@
         /* 商品分类表 */
         <trim prefix="SET" prefixOverrides=",">
         
-            <if test="id != null">
-                ,id = #{id} /* 自动编号 */
-            </if>
-        
             <if test="categroyName != null">
-                ,categroy_name = #{categroyName} /* 商品分类名称 */
+                ,categroy_name = #{categroyName}
             </if>
         
             <if test="description != null">
-                ,description = #{description} /* 分类描述 */
+                ,description = #{description}
             </if>
         
             <if test="rank != null">
-                ,rank = #{rank} /* 排序 */
+                ,rank = #{rank}
             </if>
         
             <if test="yn != null">
-                ,yn = #{yn} /* 数据状态 0-无效 1-有效 */
+                ,yn = #{yn}
             </if>
         
         </trim>
         WHERE
-        id = #{id}		/* id */
+        id = #{id}
     </update>
 
-    <select id="findById" parameterType="ProductCategory"  resultMap="baseResultMap">
+    <select id="findById" parameterType="java.lang.Long" resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
-        FROM   product_category  /* 商品分类表 */
+        FROM  product_category  /* 商品分类表 */
         WHERE
-        id = #{id}		/* id */
+        id = #{id}
     </select>
 
     <select id="getAllList" parameterType="com.openmall.product.utils.Query"  resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
-        FROM    product_category  /* 商品分类表 */
+        FROM product_category  /* 商品分类表 */
         WHERE 1 = 1
         <include refid="wherecontation"/>
         ORDER BY id DESC

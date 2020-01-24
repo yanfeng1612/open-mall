@@ -10,7 +10,7 @@ import com.openmall.product.utils.*;
 /**
  * 商品品牌表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface ProductBrandMapper {
 
@@ -30,6 +30,12 @@ public interface ProductBrandMapper {
      *
      * @auto generated
      */
+    int insertOrUpdate(ProductBrand productBrand);
+
+    /**
+     *
+     * @auto generated
+     */
     int deleteById(long id);
 
     /**
@@ -42,7 +48,7 @@ public interface ProductBrandMapper {
      *
      * @auto generated
      */
-    ProductBrand findById(ProductBrand productBrand);
+    ProductBrand findById(Long id);
 
     /**
      *

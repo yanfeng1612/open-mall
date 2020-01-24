@@ -23,29 +23,29 @@
     <sql id="queryColumns">
         <trim prefixOverrides=",">
         
-            ,id	/* 自动编号 */
+            ,id
         
-            ,username	/* 用户名 */
+            ,username
         
-            ,password	/* 密码 */
+            ,password
         
-            ,phone	/* 手机号 */
+            ,phone
         
-            ,address	/* 地址 */
+            ,address
         
-            ,sex	/* 用户性别  0-未知   1-男  2-女 */
+            ,sex
         
-            ,age	/* 用户年龄 */
+            ,age
         
-            ,birth	/* 生日 */
+            ,birth
         
-            ,email	/* 邮箱 */
+            ,email
         
-            ,yn	/* 数据状态 0-无效 1-有效 */
+            ,yn
         
-            ,created_time	/* 创建时间 */
+            ,created_time
         
-            ,modified_time	/* 修改时间 */
+            ,modified_time
         
         </trim>
     </sql>
@@ -54,51 +54,51 @@
         <if test="query!= null">
         
             <if test="query.id != null">
-                and id = #{query.id} /* 自动编号 */
+                and id = #{query.id}
             </if>
         
             <if test="query.username != null and query.username != ''">
-                and username = #{query.username} /* 用户名 */
+                and username = #{query.username}
             </if>
         
             <if test="query.password != null and query.password != ''">
-                and password = #{query.password} /* 密码 */
+                and password = #{query.password}
             </if>
         
             <if test="query.phone != null and query.phone != ''">
-                and phone = #{query.phone} /* 手机号 */
+                and phone = #{query.phone}
             </if>
         
             <if test="query.address != null and query.address != ''">
-                and address = #{query.address} /* 地址 */
+                and address = #{query.address}
             </if>
         
             <if test="query.sex != null">
-                and sex = #{query.sex} /* 用户性别  0-未知   1-男  2-女 */
+                and sex = #{query.sex}
             </if>
         
             <if test="query.age != null">
-                and age = #{query.age} /* 用户年龄 */
+                and age = #{query.age}
             </if>
         
             <if test="query.birth != null">
-                and birth = #{query.birth} /* 生日 */
+                and birth = #{query.birth}
             </if>
         
             <if test="query.email != null and query.email != ''">
-                and email = #{query.email} /* 邮箱 */
+                and email = #{query.email}
             </if>
         
             <if test="query.yn != null">
-                and yn = #{query.yn} /* 数据状态 0-无效 1-有效 */
+                and yn = #{query.yn}
             </if>
         
             <if test="query.createdTime != null">
-                and created_time = #{query.createdTime} /* 创建时间 */
+                and created_time = #{query.createdTime}
             </if>
         
             <if test="query.modifiedTime != null">
-                and modified_time = #{query.modifiedTime} /* 修改时间 */
+                and modified_time = #{query.modifiedTime}
             </if>
         
         </if>
@@ -108,51 +108,51 @@
         <trim prefixOverrides=",">
         
         <if test="id != null">
-            ,id /* 自动编号 */
+            ,id
         </if>
         
         <if test="username != null">
-            ,username /* 用户名 */
+            ,username
         </if>
         
         <if test="password != null">
-            ,password /* 密码 */
+            ,password
         </if>
         
         <if test="phone != null">
-            ,phone /* 手机号 */
+            ,phone
         </if>
         
         <if test="address != null">
-            ,address /* 地址 */
+            ,address
         </if>
         
         <if test="sex != null">
-            ,sex /* 用户性别  0-未知   1-男  2-女 */
+            ,sex
         </if>
         
         <if test="age != null">
-            ,age /* 用户年龄 */
+            ,age
         </if>
         
         <if test="birth != null">
-            ,birth /* 生日 */
+            ,birth
         </if>
         
         <if test="email != null">
-            ,email /* 邮箱 */
+            ,email
         </if>
         
         <if test="yn != null">
-            ,yn /* 数据状态 0-无效 1-有效 */
+            ,yn
         </if>
         
         <if test="createdTime != null">
-            ,created_time /* 创建时间 */
+            ,created_time
         </if>
         
         <if test="modifiedTime != null">
-            ,modified_time /* 修改时间 */
+            ,modified_time
         </if>
         
         </trim>
@@ -162,51 +162,51 @@
         <trim prefixOverrides=",">
         
         <if test="id != null">
-            ,#id /* 自动编号 */
+            ,#{id}
         </if>
         
         <if test="username != null">
-            ,#username /* 用户名 */
+            ,#{username}
         </if>
         
         <if test="password != null">
-            ,#password /* 密码 */
+            ,#{password}
         </if>
         
         <if test="phone != null">
-            ,#phone /* 手机号 */
+            ,#{phone}
         </if>
         
         <if test="address != null">
-            ,#address /* 地址 */
+            ,#{address}
         </if>
         
         <if test="sex != null">
-            ,#sex /* 用户性别  0-未知   1-男  2-女 */
+            ,#{sex}
         </if>
         
         <if test="age != null">
-            ,#age /* 用户年龄 */
+            ,#{age}
         </if>
         
         <if test="birth != null">
-            ,#birth /* 生日 */
+            ,#{birth}
         </if>
         
         <if test="email != null">
-            ,#email /* 邮箱 */
+            ,#{email}
         </if>
         
         <if test="yn != null">
-            ,#yn /* 数据状态 0-无效 1-有效 */
+            ,#{yn}
         </if>
         
         <if test="createdTime != null">
-            ,#createdTime /* 创建时间 */
+            ,#{createdTime}
         </if>
         
         <if test="modifiedTime != null">
-            ,#modifiedTime /* 修改时间 */
+            ,#{modifiedTime}
         </if>
         
         </trim>
@@ -284,6 +284,38 @@
         </foreach>
     </insert>
 
+    <insert id="insertOrUpdate" parameterType="User"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        /* 用户表 */
+        INSERT  INTO  user
+        (
+            <include refid="getInsertField" />
+        )
+        VALUES (
+            <include refid="getInsertFieldValue" />
+        ) ON DUPLICATE KEY
+        <trim prefix="UPDATE" suffixOverrides=",">
+            
+                    username = VALUES(username),
+                
+                    password = VALUES(password),
+                
+                    phone = VALUES(phone),
+                
+                    address = VALUES(address),
+                
+                    sex = VALUES(sex),
+                
+                    age = VALUES(age),
+                
+                    birth = VALUES(birth),
+                
+                    email = VALUES(email),
+                
+                    yn = VALUES(yn),
+                
+        </trim>
+    </insert>
+
     <delete id="deleteById" parameterType="java.lang.Long">
         DELETE FROM user WHERE id = #{id}
     </delete>
@@ -293,63 +325,59 @@
         /* 用户表 */
         <trim prefix="SET" prefixOverrides=",">
         
-            <if test="id != null">
-                ,id = #{id} /* 自动编号 */
-            </if>
-        
             <if test="username != null">
-                ,username = #{username} /* 用户名 */
+                ,username = #{username}
             </if>
         
             <if test="password != null">
-                ,password = #{password} /* 密码 */
+                ,password = #{password}
             </if>
         
             <if test="phone != null">
-                ,phone = #{phone} /* 手机号 */
+                ,phone = #{phone}
             </if>
         
             <if test="address != null">
-                ,address = #{address} /* 地址 */
+                ,address = #{address}
             </if>
         
             <if test="sex != null">
-                ,sex = #{sex} /* 用户性别  0-未知   1-男  2-女 */
+                ,sex = #{sex}
             </if>
         
             <if test="age != null">
-                ,age = #{age} /* 用户年龄 */
+                ,age = #{age}
             </if>
         
             <if test="birth != null">
-                ,birth = #{birth} /* 生日 */
+                ,birth = #{birth}
             </if>
         
             <if test="email != null">
-                ,email = #{email} /* 邮箱 */
+                ,email = #{email}
             </if>
         
             <if test="yn != null">
-                ,yn = #{yn} /* 数据状态 0-无效 1-有效 */
+                ,yn = #{yn}
             </if>
         
         </trim>
         WHERE
-        id = #{id}		/* id */
+        id = #{id}
     </update>
 
-    <select id="findById" parameterType="User"  resultMap="baseResultMap">
+    <select id="findById" parameterType="java.lang.Long" resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
-        FROM   user  /* 用户表 */
+        FROM  user  /* 用户表 */
         WHERE
-        id = #{id}		/* id */
+        id = #{id}
     </select>
 
     <select id="getAllList" parameterType="com.openmall.user.utils.Query"  resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
-        FROM    user  /* 用户表 */
+        FROM user  /* 用户表 */
         WHERE 1 = 1
         <include refid="wherecontation"/>
         ORDER BY id DESC

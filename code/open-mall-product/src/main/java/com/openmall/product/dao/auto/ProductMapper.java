@@ -10,7 +10,7 @@ import com.openmall.product.utils.*;
 /**
  * 商品基本属性表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface ProductMapper {
 
@@ -30,6 +30,12 @@ public interface ProductMapper {
      *
      * @auto generated
      */
+    int insertOrUpdate(Product product);
+
+    /**
+     *
+     * @auto generated
+     */
     int deleteById(long id);
 
     /**
@@ -42,7 +48,7 @@ public interface ProductMapper {
      *
      * @auto generated
      */
-    Product findById(Product product);
+    Product findById(Long id);
 
     /**
      *

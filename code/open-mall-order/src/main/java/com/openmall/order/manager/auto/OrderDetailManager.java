@@ -9,7 +9,7 @@ import com.openmall.order.utils.*;
 /**
  * 订单明细表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface OrderDetailManager {
 
@@ -24,6 +24,12 @@ public interface OrderDetailManager {
      * @auto generated
      */
     int insertBatch(List<OrderDetail> orderDetailList);
+
+    /**
+     *
+     * @auto generated
+     */
+    int insertOrUpdate(OrderDetail orderDetail);
 
     /**
      *
@@ -47,7 +53,7 @@ public interface OrderDetailManager {
      *
      * @auto generated
      */
-    OrderDetail findById(OrderDetail orderDetail);
+    OrderDetail findById(Long id);
 
     /**
      *

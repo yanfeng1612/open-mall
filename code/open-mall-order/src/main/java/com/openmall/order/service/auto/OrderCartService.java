@@ -14,7 +14,7 @@ import com.openmall.order.domain.auto.OrderCartQuery;
 /**
  * 订单购物车
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface OrderCartService {
 
@@ -29,6 +29,12 @@ public interface OrderCartService {
      * @generated
      */
     BasicResult addBatch(List<OrderCart> orderCartList);
+
+    /**
+     *
+     * @generated
+     */
+    BasicResult addOrUpdate(OrderCart orderCart);
 
     /**
      *
@@ -52,7 +58,7 @@ public interface OrderCartService {
      *
      * @generated
      */
-    OrderCart searchOrderCartById(OrderCart orderCart);
+    OrderCart searchOrderCartById(Long id);
 
     /**
      *

@@ -24,7 +24,6 @@
 		<springboot.version>2.0.8.RELEASE</springboot.version>
 		<springcloud.version>Greenwich.SR2</springcloud.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>eurekademo.EurekaApplication</start-class>
 		<docker.image.prefix>springcloud</docker.image.prefix>
 	</properties>
 

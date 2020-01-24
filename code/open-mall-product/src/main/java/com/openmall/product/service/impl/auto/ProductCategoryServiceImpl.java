@@ -21,7 +21,7 @@ import com.openmall.product.service.auto.ProductCategoryService;
 /**
  * 商品分类表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Service("productCategoryService")
 public class ProductCategoryServiceImpl implements ProductCategoryService{
@@ -81,6 +81,36 @@ public class ProductCategoryServiceImpl implements ProductCategoryService{
             result.setCode(CodeEnum.FAILED.getCode());
             result.setMsg("未知异常" + e.getMessage());
             LOG.error("exception ProductCategoryServiceImpl.addBatch param:" + JSON.toJSONString(productCategoryList),e);
+        }
+        return result;
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public BasicResult addOrUpdate(ProductCategory productCategory) {
+        LOG.info("request ProductCategoryServiceImpl.addOrUpdate param:" + JSON.toJSONString(productCategory));
+        BasicResult result = new BasicResult();
+        try {
+            if (productCategory != null) {
+                productCategoryManagerImpl.insertOrUpdate(productCategory);
+                result.setCode(CodeEnum.SUCCESS.getCode());
+                result.setMsg("保存成功");
+            } else {
+                result.setCode(CodeEnum.FAILED.getCode());
+                result.setMsg("productCategory is null");
+                LOG.error("------ProductCategoryServiceImpl.addProductCategory - productCategory is null!");
+            }
+        } catch (DuplicateKeyException e) {
+            result.setCode(CodeEnum.DUPLICATE.getCode());
+            result.setMsg(CodeEnum.DUPLICATE.getMessage());
+            LOG.error("------ProductCategoryServiceImpl.addProductCategory 异常",e);
+        } catch (Exception e) {
+            result.setCode(CodeEnum.FAILED.getCode());
+            result.setMsg("未知异常" + e.getMessage());
+            LOG.error("------ProductCategoryServiceImpl.addProductCategory 异常",e);
         }
         return result;
     }
@@ -173,9 +203,9 @@ public class ProductCategoryServiceImpl implements ProductCategoryService{
      * @generated
      */
     @Override
-    public ProductCategory searchProductCategoryById(ProductCategory productCategory){
+    public ProductCategory searchProductCategoryById(Long id){
         try {
-            return productCategoryManagerImpl.findById(productCategory);
+            return productCategoryManagerImpl.findById(id);
         } catch (Exception e) {
             LOG.error("------ProductCategoryServiceImpl.searchProductCategoryByPriKey 异常", e);
         }

@@ -21,7 +21,7 @@ import com.openmall.product.service.auto.ProductBrandService;
 /**
  * 商品品牌表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Service("productBrandService")
 public class ProductBrandServiceImpl implements ProductBrandService{
@@ -81,6 +81,36 @@ public class ProductBrandServiceImpl implements ProductBrandService{
             result.setCode(CodeEnum.FAILED.getCode());
             result.setMsg("未知异常" + e.getMessage());
             LOG.error("exception ProductBrandServiceImpl.addBatch param:" + JSON.toJSONString(productBrandList),e);
+        }
+        return result;
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public BasicResult addOrUpdate(ProductBrand productBrand) {
+        LOG.info("request ProductBrandServiceImpl.addOrUpdate param:" + JSON.toJSONString(productBrand));
+        BasicResult result = new BasicResult();
+        try {
+            if (productBrand != null) {
+                productBrandManagerImpl.insertOrUpdate(productBrand);
+                result.setCode(CodeEnum.SUCCESS.getCode());
+                result.setMsg("保存成功");
+            } else {
+                result.setCode(CodeEnum.FAILED.getCode());
+                result.setMsg("productBrand is null");
+                LOG.error("------ProductBrandServiceImpl.addProductBrand - productBrand is null!");
+            }
+        } catch (DuplicateKeyException e) {
+            result.setCode(CodeEnum.DUPLICATE.getCode());
+            result.setMsg(CodeEnum.DUPLICATE.getMessage());
+            LOG.error("------ProductBrandServiceImpl.addProductBrand 异常",e);
+        } catch (Exception e) {
+            result.setCode(CodeEnum.FAILED.getCode());
+            result.setMsg("未知异常" + e.getMessage());
+            LOG.error("------ProductBrandServiceImpl.addProductBrand 异常",e);
         }
         return result;
     }
@@ -173,9 +203,9 @@ public class ProductBrandServiceImpl implements ProductBrandService{
      * @generated
      */
     @Override
-    public ProductBrand searchProductBrandById(ProductBrand productBrand){
+    public ProductBrand searchProductBrandById(Long id){
         try {
-            return productBrandManagerImpl.findById(productBrand);
+            return productBrandManagerImpl.findById(id);
         } catch (Exception e) {
             LOG.error("------ProductBrandServiceImpl.searchProductBrandByPriKey 异常", e);
         }

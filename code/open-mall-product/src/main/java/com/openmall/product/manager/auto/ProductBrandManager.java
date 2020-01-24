@@ -9,7 +9,7 @@ import com.openmall.product.utils.*;
 /**
  * 商品品牌表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface ProductBrandManager {
 
@@ -24,6 +24,12 @@ public interface ProductBrandManager {
      * @auto generated
      */
     int insertBatch(List<ProductBrand> productBrandList);
+
+    /**
+     *
+     * @auto generated
+     */
+    int insertOrUpdate(ProductBrand productBrand);
 
     /**
      *
@@ -47,7 +53,7 @@ public interface ProductBrandManager {
      *
      * @auto generated
      */
-    ProductBrand findById(ProductBrand productBrand);
+    ProductBrand findById(Long id);
 
     /**
      *

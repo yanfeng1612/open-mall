@@ -14,7 +14,7 @@ import com.openmall.user.domain.auto.UserQuery;
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface UserService {
 
@@ -29,6 +29,12 @@ public interface UserService {
      * @generated
      */
     BasicResult addBatch(List<User> userList);
+
+    /**
+     *
+     * @generated
+     */
+    BasicResult addOrUpdate(User user);
 
     /**
      *
@@ -52,7 +58,7 @@ public interface UserService {
      *
      * @generated
      */
-    User searchUserById(User user);
+    User searchUserById(Long id);
 
     /**
      *

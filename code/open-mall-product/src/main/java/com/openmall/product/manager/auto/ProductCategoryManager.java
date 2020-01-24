@@ -9,7 +9,7 @@ import com.openmall.product.utils.*;
 /**
  * 商品分类表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface ProductCategoryManager {
 
@@ -24,6 +24,12 @@ public interface ProductCategoryManager {
      * @auto generated
      */
     int insertBatch(List<ProductCategory> productCategoryList);
+
+    /**
+     *
+     * @auto generated
+     */
+    int insertOrUpdate(ProductCategory productCategory);
 
     /**
      *
@@ -47,7 +53,7 @@ public interface ProductCategoryManager {
      *
      * @auto generated
      */
-    ProductCategory findById(ProductCategory productCategory);
+    ProductCategory findById(Long id);
 
     /**
      *

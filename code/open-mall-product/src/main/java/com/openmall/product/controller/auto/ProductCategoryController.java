@@ -21,7 +21,7 @@ import com.openmall.product.service.auto.ProductCategoryService;
 /**
  * 商品分类表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @RestController
 @RequestMapping(value = "/productCategory", produces = "application/json; charset=utf-8")
@@ -77,6 +77,21 @@ public class ProductCategoryController {
         return response;
     }
 
+    @RequestMapping(value = "/addOrUpdate")
+    public Response<ProductCategory> addOrUpdate(@RequestBody ProductCategory productCategory) {
+        Response<ProductCategory> response = new Response<>();
+        try {
+            BasicResult result = productCategoryService.addOrUpdate(productCategory);
+            APIMsgCode apiMsgCode = CodeConverter.convert(result.getCode());
+            return ResponseTemplate.getResponse(apiMsgCode, null);
+        } catch (Exception e) {
+            response.setCode(APIMsgCode.FAILURE.getCode());
+            response.setMessage(APIMsgCode.FAILURE.getValue());
+            response.setStatus(APIEmRequestStatus.FAIL);
+        }
+        return response;
+    }
+
     /**
      * 查询数据列表
      */
@@ -98,14 +113,14 @@ public class ProductCategoryController {
      * 查询数据详情
      */
     @RequestMapping(value = "/detail", method = {RequestMethod.POST,RequestMethod.GET})
-    public Response<ProductCategory> getProductCategoryById(@RequestBody ProductCategory productCategory) {
-        LOG.info("查询参数 {}",productCategory) ;
+    public Response<ProductCategory> getProductCategoryById(Long id) {
+        LOG.info("查询参数 {}",id) ;
         Response<ProductCategory> response = new Response<>();
         try {
-            ProductCategory result = productCategoryService.searchProductCategoryById(productCategory);
+            ProductCategory result = productCategoryService.searchProductCategoryById(id);
             return ResponseTemplate.getResponse(APIMsgCode.SUCCESS, result);
         } catch (Exception e) {
-            LOG.error("查询数据异常:{}",productCategory,e);
+            LOG.error("查询数据异常:{}",id,e);
             response = ResponseTemplate.FAILURE.getResponse(null);
         }
         return response;

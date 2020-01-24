@@ -14,7 +14,7 @@ import com.openmall.order.domain.auto.OrderDetailQuery;
 /**
  * 订单明细表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface OrderDetailService {
 
@@ -29,6 +29,12 @@ public interface OrderDetailService {
      * @generated
      */
     BasicResult addBatch(List<OrderDetail> orderDetailList);
+
+    /**
+     *
+     * @generated
+     */
+    BasicResult addOrUpdate(OrderDetail orderDetail);
 
     /**
      *
@@ -52,7 +58,7 @@ public interface OrderDetailService {
      *
      * @generated
      */
-    OrderDetail searchOrderDetailById(OrderDetail orderDetail);
+    OrderDetail searchOrderDetailById(Long id);
 
     /**
      *

@@ -14,7 +14,7 @@ import com.openmall.order.domain.auto.OrderMasterQuery;
 /**
  * 订单master表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface OrderMasterService {
 
@@ -29,6 +29,12 @@ public interface OrderMasterService {
      * @generated
      */
     BasicResult addBatch(List<OrderMaster> orderMasterList);
+
+    /**
+     *
+     * @generated
+     */
+    BasicResult addOrUpdate(OrderMaster orderMaster);
 
     /**
      *
@@ -52,7 +58,7 @@ public interface OrderMasterService {
      *
      * @generated
      */
-    OrderMaster searchOrderMasterById(OrderMaster orderMaster);
+    OrderMaster searchOrderMasterById(Long id);
 
     /**
      *

@@ -14,7 +14,7 @@ import com.openmall.product.domain.auto.ProductQuery;
 /**
  * 商品基本属性表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface ProductService {
 
@@ -29,6 +29,12 @@ public interface ProductService {
      * @generated
      */
     BasicResult addBatch(List<Product> productList);
+
+    /**
+     *
+     * @generated
+     */
+    BasicResult addOrUpdate(Product product);
 
     /**
      *
@@ -52,7 +58,7 @@ public interface ProductService {
      *
      * @generated
      */
-    Product searchProductById(Product product);
+    Product searchProductById(Long id);
 
     /**
      *

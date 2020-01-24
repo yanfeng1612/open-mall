@@ -10,7 +10,7 @@ import com.openmall.order.utils.*;
 /**
  * 订单master表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface OrderMasterMapper {
 
@@ -30,6 +30,12 @@ public interface OrderMasterMapper {
      *
      * @auto generated
      */
+    int insertOrUpdate(OrderMaster orderMaster);
+
+    /**
+     *
+     * @auto generated
+     */
     int deleteById(long id);
 
     /**
@@ -42,7 +48,7 @@ public interface OrderMasterMapper {
      *
      * @auto generated
      */
-    OrderMaster findById(OrderMaster orderMaster);
+    OrderMaster findById(Long id);
 
     /**
      *

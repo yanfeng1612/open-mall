@@ -29,41 +29,41 @@
     <sql id="queryColumns">
         <trim prefixOverrides=",">
         
-            ,id	/* 自动编号 */
+            ,id
         
-            ,product_name	/* 商品名称 */
+            ,product_name
         
-            ,unit	/* 商品单位 */
+            ,unit
         
-            ,categroy_id	/* 商品分类id */
+            ,categroy_id
         
-            ,categroy_name	/* 商品分类名称 */
+            ,categroy_name
         
-            ,brand_id	/* 商品品牌id */
+            ,brand_id
         
-            ,brand_name	/* 商品品牌名称 */
+            ,brand_name
         
-            ,description	/* 描述 */
+            ,description
         
-            ,imgePath	/* 图片路径 */
+            ,imgePath
         
-            ,serial_number	/* 货号 */
+            ,serial_number
         
-            ,price	/* 售价 */
+            ,price
         
-            ,market_price	/* 市场价 */
+            ,market_price
         
-            ,stock	/* 库存 */
+            ,stock
         
-            ,weight	/* 重量（单位克） */
+            ,weight
         
-            ,rank	/* 排序 */
+            ,rank
         
-            ,yn	/* 数据状态 0-无效 1-有效 */
+            ,yn
         
-            ,created_time	/* 创建时间 */
+            ,created_time
         
-            ,modified_time	/* 修改时间 */
+            ,modified_time
         
         </trim>
     </sql>
@@ -72,75 +72,75 @@
         <if test="query!= null">
         
             <if test="query.id != null">
-                and id = #{query.id} /* 自动编号 */
+                and id = #{query.id}
             </if>
         
             <if test="query.productName != null and query.productName != ''">
-                and product_name = #{query.productName} /* 商品名称 */
+                and product_name = #{query.productName}
             </if>
         
             <if test="query.unit != null and query.unit != ''">
-                and unit = #{query.unit} /* 商品单位 */
+                and unit = #{query.unit}
             </if>
         
             <if test="query.categroyId != null">
-                and categroy_id = #{query.categroyId} /* 商品分类id */
+                and categroy_id = #{query.categroyId}
             </if>
         
             <if test="query.categroyName != null and query.categroyName != ''">
-                and categroy_name = #{query.categroyName} /* 商品分类名称 */
+                and categroy_name = #{query.categroyName}
             </if>
         
             <if test="query.brandId != null">
-                and brand_id = #{query.brandId} /* 商品品牌id */
+                and brand_id = #{query.brandId}
             </if>
         
             <if test="query.brandName != null and query.brandName != ''">
-                and brand_name = #{query.brandName} /* 商品品牌名称 */
+                and brand_name = #{query.brandName}
             </if>
         
             <if test="query.description != null and query.description != ''">
-                and description = #{query.description} /* 描述 */
+                and description = #{query.description}
             </if>
         
             <if test="query.imgePath != null and query.imgePath != ''">
-                and imgePath = #{query.imgePath} /* 图片路径 */
+                and imgePath = #{query.imgePath}
             </if>
         
             <if test="query.serialNumber != null and query.serialNumber != ''">
-                and serial_number = #{query.serialNumber} /* 货号 */
+                and serial_number = #{query.serialNumber}
             </if>
         
             <if test="query.price != null">
-                and price = #{query.price} /* 售价 */
+                and price = #{query.price}
             </if>
         
             <if test="query.marketPrice != null">
-                and market_price = #{query.marketPrice} /* 市场价 */
+                and market_price = #{query.marketPrice}
             </if>
         
             <if test="query.stock != null">
-                and stock = #{query.stock} /* 库存 */
+                and stock = #{query.stock}
             </if>
         
             <if test="query.weight != null">
-                and weight = #{query.weight} /* 重量（单位克） */
+                and weight = #{query.weight}
             </if>
         
             <if test="query.rank != null">
-                and rank = #{query.rank} /* 排序 */
+                and rank = #{query.rank}
             </if>
         
             <if test="query.yn != null">
-                and yn = #{query.yn} /* 数据状态 0-无效 1-有效 */
+                and yn = #{query.yn}
             </if>
         
             <if test="query.createdTime != null">
-                and created_time = #{query.createdTime} /* 创建时间 */
+                and created_time = #{query.createdTime}
             </if>
         
             <if test="query.modifiedTime != null">
-                and modified_time = #{query.modifiedTime} /* 修改时间 */
+                and modified_time = #{query.modifiedTime}
             </if>
         
         </if>
@@ -150,75 +150,75 @@
         <trim prefixOverrides=",">
         
         <if test="id != null">
-            ,id /* 自动编号 */
+            ,id
         </if>
         
         <if test="productName != null">
-            ,product_name /* 商品名称 */
+            ,product_name
         </if>
         
         <if test="unit != null">
-            ,unit /* 商品单位 */
+            ,unit
         </if>
         
         <if test="categroyId != null">
-            ,categroy_id /* 商品分类id */
+            ,categroy_id
         </if>
         
         <if test="categroyName != null">
-            ,categroy_name /* 商品分类名称 */
+            ,categroy_name
         </if>
         
         <if test="brandId != null">
-            ,brand_id /* 商品品牌id */
+            ,brand_id
         </if>
         
         <if test="brandName != null">
-            ,brand_name /* 商品品牌名称 */
+            ,brand_name
         </if>
         
         <if test="description != null">
-            ,description /* 描述 */
+            ,description
         </if>
         
         <if test="imgePath != null">
-            ,imgePath /* 图片路径 */
+            ,imgePath
         </if>
         
         <if test="serialNumber != null">
-            ,serial_number /* 货号 */
+            ,serial_number
         </if>
         
         <if test="price != null">
-            ,price /* 售价 */
+            ,price
         </if>
         
         <if test="marketPrice != null">
-            ,market_price /* 市场价 */
+            ,market_price
         </if>
         
         <if test="stock != null">
-            ,stock /* 库存 */
+            ,stock
         </if>
         
         <if test="weight != null">
-            ,weight /* 重量（单位克） */
+            ,weight
         </if>
         
         <if test="rank != null">
-            ,rank /* 排序 */
+            ,rank
         </if>
         
         <if test="yn != null">
-            ,yn /* 数据状态 0-无效 1-有效 */
+            ,yn
         </if>
         
         <if test="createdTime != null">
-            ,created_time /* 创建时间 */
+            ,created_time
         </if>
         
         <if test="modifiedTime != null">
-            ,modified_time /* 修改时间 */
+            ,modified_time
         </if>
         
         </trim>
@@ -228,75 +228,75 @@
         <trim prefixOverrides=",">
         
         <if test="id != null">
-            ,#id /* 自动编号 */
+            ,#{id}
         </if>
         
         <if test="productName != null">
-            ,#productName /* 商品名称 */
+            ,#{productName}
         </if>
         
         <if test="unit != null">
-            ,#unit /* 商品单位 */
+            ,#{unit}
         </if>
         
         <if test="categroyId != null">
-            ,#categroyId /* 商品分类id */
+            ,#{categroyId}
         </if>
         
         <if test="categroyName != null">
-            ,#categroyName /* 商品分类名称 */
+            ,#{categroyName}
         </if>
         
         <if test="brandId != null">
-            ,#brandId /* 商品品牌id */
+            ,#{brandId}
         </if>
         
         <if test="brandName != null">
-            ,#brandName /* 商品品牌名称 */
+            ,#{brandName}
         </if>
         
         <if test="description != null">
-            ,#description /* 描述 */
+            ,#{description}
         </if>
         
         <if test="imgePath != null">
-            ,#imgePath /* 图片路径 */
+            ,#{imgePath}
         </if>
         
         <if test="serialNumber != null">
-            ,#serialNumber /* 货号 */
+            ,#{serialNumber}
         </if>
         
         <if test="price != null">
-            ,#price /* 售价 */
+            ,#{price}
         </if>
         
         <if test="marketPrice != null">
-            ,#marketPrice /* 市场价 */
+            ,#{marketPrice}
         </if>
         
         <if test="stock != null">
-            ,#stock /* 库存 */
+            ,#{stock}
         </if>
         
         <if test="weight != null">
-            ,#weight /* 重量（单位克） */
+            ,#{weight}
         </if>
         
         <if test="rank != null">
-            ,#rank /* 排序 */
+            ,#{rank}
         </if>
         
         <if test="yn != null">
-            ,#yn /* 数据状态 0-无效 1-有效 */
+            ,#{yn}
         </if>
         
         <if test="createdTime != null">
-            ,#createdTime /* 创建时间 */
+            ,#{createdTime}
         </if>
         
         <if test="modifiedTime != null">
-            ,#modifiedTime /* 修改时间 */
+            ,#{modifiedTime}
         </if>
         
         </trim>
@@ -398,6 +398,50 @@
         </foreach>
     </insert>
 
+    <insert id="insertOrUpdate" parameterType="Product"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        /* 商品基本属性表 */
+        INSERT  INTO  product
+        (
+            <include refid="getInsertField" />
+        )
+        VALUES (
+            <include refid="getInsertFieldValue" />
+        ) ON DUPLICATE KEY
+        <trim prefix="UPDATE" suffixOverrides=",">
+            
+                    product_name = VALUES(product_name),
+                
+                    unit = VALUES(unit),
+                
+                    categroy_id = VALUES(categroy_id),
+                
+                    categroy_name = VALUES(categroy_name),
+                
+                    brand_id = VALUES(brand_id),
+                
+                    brand_name = VALUES(brand_name),
+                
+                    description = VALUES(description),
+                
+                    imgePath = VALUES(imgePath),
+                
+                    serial_number = VALUES(serial_number),
+                
+                    price = VALUES(price),
+                
+                    market_price = VALUES(market_price),
+                
+                    stock = VALUES(stock),
+                
+                    weight = VALUES(weight),
+                
+                    rank = VALUES(rank),
+                
+                    yn = VALUES(yn),
+                
+        </trim>
+    </insert>
+
     <delete id="deleteById" parameterType="java.lang.Long">
         DELETE FROM product WHERE id = #{id}
     </delete>
@@ -407,87 +451,83 @@
         /* 商品基本属性表 */
         <trim prefix="SET" prefixOverrides=",">
         
-            <if test="id != null">
-                ,id = #{id} /* 自动编号 */
-            </if>
-        
             <if test="productName != null">
-                ,product_name = #{productName} /* 商品名称 */
+                ,product_name = #{productName}
             </if>
         
             <if test="unit != null">
-                ,unit = #{unit} /* 商品单位 */
+                ,unit = #{unit}
             </if>
         
             <if test="categroyId != null">
-                ,categroy_id = #{categroyId} /* 商品分类id */
+                ,categroy_id = #{categroyId}
             </if>
         
             <if test="categroyName != null">
-                ,categroy_name = #{categroyName} /* 商品分类名称 */
+                ,categroy_name = #{categroyName}
             </if>
         
             <if test="brandId != null">
-                ,brand_id = #{brandId} /* 商品品牌id */
+                ,brand_id = #{brandId}
             </if>
         
             <if test="brandName != null">
-                ,brand_name = #{brandName} /* 商品品牌名称 */
+                ,brand_name = #{brandName}
             </if>
         
             <if test="description != null">
-                ,description = #{description} /* 描述 */
+                ,description = #{description}
             </if>
         
             <if test="imgePath != null">
-                ,imgePath = #{imgePath} /* 图片路径 */
+                ,imgePath = #{imgePath}
             </if>
         
             <if test="serialNumber != null">
-                ,serial_number = #{serialNumber} /* 货号 */
+                ,serial_number = #{serialNumber}
             </if>
         
             <if test="price != null">
-                ,price = #{price} /* 售价 */
+                ,price = #{price}
             </if>
         
             <if test="marketPrice != null">
-                ,market_price = #{marketPrice} /* 市场价 */
+                ,market_price = #{marketPrice}
             </if>
         
             <if test="stock != null">
-                ,stock = #{stock} /* 库存 */
+                ,stock = #{stock}
             </if>
         
             <if test="weight != null">
-                ,weight = #{weight} /* 重量（单位克） */
+                ,weight = #{weight}
             </if>
         
             <if test="rank != null">
-                ,rank = #{rank} /* 排序 */
+                ,rank = #{rank}
             </if>
         
             <if test="yn != null">
-                ,yn = #{yn} /* 数据状态 0-无效 1-有效 */
+                ,yn = #{yn}
             </if>
         
         </trim>
         WHERE
-        id = #{id}		/* id */
+        id = #{id}
     </update>
 
-    <select id="findById" parameterType="Product"  resultMap="baseResultMap">
+    <select id="findById" parameterType="java.lang.Long" resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
-        FROM   product  /* 商品基本属性表 */
+        FROM  product  /* 商品基本属性表 */
         WHERE
-        id = #{id}		/* id */
+        id = #{id}
     </select>
 
     <select id="getAllList" parameterType="com.openmall.product.utils.Query"  resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
-        FROM    product  /* 商品基本属性表 */
+        FROM product  /* 商品基本属性表 */
         WHERE 1 = 1
         <include refid="wherecontation"/>
         ORDER BY id DESC

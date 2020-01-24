@@ -9,7 +9,7 @@ import com.openmall.order.utils.*;
 /**
  * 订单购物车
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface OrderCartManager {
 
@@ -24,6 +24,12 @@ public interface OrderCartManager {
      * @auto generated
      */
     int insertBatch(List<OrderCart> orderCartList);
+
+    /**
+     *
+     * @auto generated
+     */
+    int insertOrUpdate(OrderCart orderCart);
 
     /**
      *
@@ -47,7 +53,7 @@ public interface OrderCartManager {
      *
      * @auto generated
      */
-    OrderCart findById(OrderCart orderCart);
+    OrderCart findById(Long id);
 
     /**
      *

@@ -8,7 +8,7 @@ import lombok.Data;
 /**
  * 订单购物车
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Data
 public class OrderCart implements java.io.Serializable {

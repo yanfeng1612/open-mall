@@ -20,7 +20,7 @@ import com.openmall.user.utils.*;
 /**
  * 用户表
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 @Component("userManager")
 public class UserManagerImpl implements UserManager {
@@ -46,6 +46,15 @@ public class UserManagerImpl implements UserManager {
     @Override
     public int insertBatch(List<User> userList){
         return userMapper.insertBatch(userList);
+    }
+
+    /**
+     *
+     * @generated
+     */
+    @Override
+    public int insertOrUpdate(User user){
+        return userMapper.insertOrUpdate(user);
     }
 
     /**
@@ -82,8 +91,8 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public User findById(User user){
-        return userMapper.findById(user);
+    public User findById(Long id){
+        return userMapper.findById(id);
     }
 
     /**

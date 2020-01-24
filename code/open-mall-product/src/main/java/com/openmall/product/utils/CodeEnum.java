@@ -3,7 +3,7 @@ package com.openmall.product.utils;
 /**
  * 服务请求状态API枚举
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public enum CodeEnum {
 

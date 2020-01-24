@@ -10,7 +10,7 @@ import com.openmall.order.utils.*;
 /**
  * 订单购物车
  * @author model-driven
- * @date 2020-01-18
+ * @date 2020-01-24
  **/
 public interface OrderCartMapper {
 
@@ -30,6 +30,12 @@ public interface OrderCartMapper {
      *
      * @auto generated
      */
+    int insertOrUpdate(OrderCart orderCart);
+
+    /**
+     *
+     * @auto generated
+     */
     int deleteById(long id);
 
     /**
@@ -42,7 +48,7 @@ public interface OrderCartMapper {
      *
      * @auto generated
      */
-    OrderCart findById(OrderCart orderCart);
+    OrderCart findById(Long id);
 
     /**
      *
