@@ -27,7 +27,7 @@ CREATE TABLE order_master (
    created_time      DATETIME             NOT NULL                                DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
    modified_time     TIMESTAMP            NOT NULL                                DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '修改时间',
    PRIMARY KEY (id),
-   UNIQUE KEY `orderKey_UNIQUE` (`order_key`)
+   UNIQUE KEY orderKey_UNIQUE (order_key)
 )ENGINE=InnoDB AUTO_INCREMENT= 1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='订单master表';
 
 
@@ -53,7 +53,7 @@ CREATE TABLE order_detail (
    created_time      DATETIME             NOT NULL                                DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
    modified_time     TIMESTAMP            NOT NULL                                DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '修改时间',
    PRIMARY KEY (id),
-   KEY `order_key` (`order_key`)
+   KEY order_key (order_key)
 )ENGINE=InnoDB AUTO_INCREMENT= 1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='订单明细表';
 
 
@@ -75,7 +75,5 @@ CREATE TABLE order_cart (
    created_time      DATETIME             NOT NULL                                DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
    modified_time     TIMESTAMP            NOT NULL                                DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '修改时间',
    PRIMARY KEY (id),
-   KEY `user_id` (`user_id`)
+   KEY user_id (user_id)
 )ENGINE=InnoDB AUTO_INCREMENT= 1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='订单购物车';
-
-
