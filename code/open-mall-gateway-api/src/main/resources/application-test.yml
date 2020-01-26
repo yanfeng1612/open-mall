@@ -1,0 +1,7 @@
+server:
+  port: 9004
+
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://registry.open-mall.com:8761/eureka/

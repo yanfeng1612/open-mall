@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: open-mall-gateway-api
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+  profiles:
+    active: @boot.profile@

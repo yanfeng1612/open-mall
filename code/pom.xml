@@ -30,7 +30,7 @@
 	<modules>
 		<module>open-mall-registry</module>
 		<module>open-mall-gateway-admin</module>
-		<module>open-mall-api</module>
+		<module>open-mall-gateway-api</module>
 		<module>open-mall-user</module>
 		<module>open-mall-product</module>
 		<module>open-mall-order</module>
