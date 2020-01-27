@@ -7,8 +7,8 @@ CREATE TABLE product (
    id                BIGINT(20)           NOT NULL         AUTO_INCREMENT                                COMMENT '自动编号',
    product_name      VARCHAR(50)          NOT NULL                                DEFAULT ''             COMMENT '商品名称',
    unit              VARCHAR(30)          NOT NULL                                DEFAULT ''             COMMENT '商品单位',
-   categroy_id       BIGINT(20)           NOT NULL                                DEFAULT '0'            COMMENT '商品分类id',
-   categroy_name     VARCHAR(50)          NOT NULL                                DEFAULT ''             COMMENT '商品分类名称',
+   category_id       BIGINT(20)           NOT NULL                                DEFAULT '0'            COMMENT '商品分类id',
+   category_name     VARCHAR(50)          NOT NULL                                DEFAULT ''             COMMENT '商品分类名称',
    brand_id          BIGINT(20)           NOT NULL                                DEFAULT '0'            COMMENT '商品品牌id',
    brand_name        VARCHAR(50)          NOT NULL                                DEFAULT ''             COMMENT '商品品牌名称',
    description       VARCHAR(200)         CHARACTER SET utf8 NOT NULL             DEFAULT ''             COMMENT '描述',
@@ -28,7 +28,7 @@ CREATE TABLE product (
 
 CREATE TABLE product_category (
    id                BIGINT(20)           NOT NULL         AUTO_INCREMENT                                COMMENT '自动编号',
-   categroy_name     VARCHAR(50)          NOT NULL                                DEFAULT ''             COMMENT '商品分类名称',
+   category_name     VARCHAR(50)          NOT NULL                                DEFAULT ''             COMMENT '商品分类名称',
    description       VARCHAR(200)         CHARACTER SET utf8 NOT NULL             DEFAULT ''             COMMENT '分类描述',
    rank              int(11)              NOT NULL                                DEFAULT '0'            COMMENT '排序',
    yn                TINYINT(4)           NOT NULL                                DEFAULT  1             COMMENT '数据状态 0-无效 1-有效',
