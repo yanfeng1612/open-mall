@@ -48,5 +48,4 @@ public class ProductCustomServiceImpl implements ProductCustomService {
         return result;
     }
 
-
 }

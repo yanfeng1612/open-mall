@@ -9,14 +9,6 @@
         <div class="container container-margin">
             <el-input v-model="formData.id" type="hidden" />
 
-<!--            <el-row>-->
-<!--                <el-col :span="8">-->
-<!--                    <el-form-item label="自动编号：" prop="自动编号">-->
-<!--                        <el-input v-model="formData.id" placeholder="id"></el-input>-->
-<!--                    </el-form-item>-->
-<!--                </el-col>-->
-<!--            </el-row>-->
-
             <el-row>
                 <el-col :span="8">
                     <el-form-item label="商品名称：" prop="商品名称">
@@ -36,7 +28,7 @@
             <el-row>
                 <el-col :span="8">
                     <el-form-item label="商品分类名称：" prop="商品分类名称">
-                        <el-select v-model="formData.produtCategoryId" placeholder="请选择">
+                        <el-select v-model="formData.categroyId" placeholder="请选择" @change="selectItem">
                             <el-option
                                 v-for="item in categoryList"
                                 :key="item.value"
@@ -48,18 +40,10 @@
                 </el-col>
             </el-row>
 
-<!--            <el-row>-->
-<!--                <el-col :span="8">-->
-<!--                    <el-form-item label="商品品牌名称：" prop="商品品牌名称">-->
-<!--                        <el-input v-model="formData.brandName" placeholder="brandName"></el-input>-->
-<!--                    </el-form-item>-->
-<!--                </el-col>-->
-<!--            </el-row>-->
-
             <el-row>
                 <el-col :span="8">
                     <el-form-item label="商品品牌名称：" prop="商品品牌名称：">
-                        <el-select v-model="formData.produtBrandId" placeholder="请选择">
+                        <el-select v-model="formData.brandId" placeholder="请选择" @change="selectBrandItem">
                             <el-option
                                     v-for="item in brandList"
                                     :key="item.value"
@@ -135,30 +119,6 @@
                 </el-col>
             </el-row>
 
-            <el-row>
-                <el-col :span="8">
-                    <el-form-item label="数据状态 0-无效 1-有效：" prop="数据状态 0-无效 1-有效">
-                        <el-input v-model="formData.yn" placeholder="yn"></el-input>
-                    </el-form-item>
-                </el-col>
-            </el-row>
-
-<!--            <el-row>-->
-<!--                <el-col :span="8">-->
-<!--                    <el-form-item label="创建时间：" prop="创建时间">-->
-<!--                        <el-input v-model="formData.createdTime" placeholder="createdTime"></el-input>-->
-<!--                    </el-form-item>-->
-<!--                </el-col>-->
-<!--            </el-row>-->
-
-<!--            <el-row>-->
-<!--                <el-col :span="8">-->
-<!--                    <el-form-item label="修改时间：" prop="修改时间">-->
-<!--                        <el-input v-model="formData.modifiedTime" placeholder="modifiedTime"></el-input>-->
-<!--                    </el-form-item>-->
-<!--                </el-col>-->
-<!--            </el-row>-->
-
         </div>
         <div class="container-margin to-center ">
             <el-button type="primary" @click="toSave">保 存</el-button>
@@ -174,7 +134,6 @@
         name: 'baseform',
         data: function () {
             return {
-                selectItem: null,
                 loginUserType:localStorage.getItem('userType'),
                 loginCompanyNo:localStorage.getItem('companyNo'),
                 enable :false,
@@ -183,6 +142,8 @@
                 formData: {},
                 rules: {},
                 categoryList: [],
+                selectCateName : "",
+                selectBrandName : "",
                 brandList: []
             }
         },
@@ -192,14 +153,11 @@
                 "url": "/api/open-mall-product/productCategory/list",
                 "data": {},
                 "callback": function (redata) {
-                    // self.formData = redata;
-                    console.log(redata);
                     for (let i = 0; i < redata.values.length;i ++) {
                         let category = {};
                         category.value = redata.values[i].id;
                         category.label = redata.values[i].categroyName;
                         self.categoryList.push(category);
-                        self.formData = redata;
                     }
                 }
             });
@@ -212,7 +170,6 @@
                         brand.value = redata.values[i].id;
                         brand.label = redata.values[i].brandName;
                         self.brandList.push(brand);
-                        self.formData = redata;
                     }
                 }
             });
@@ -220,7 +177,7 @@
         },
         methods: {
             getData() {
-                var self = this;
+                let self = this;
                 if (this.$route.query.id != null) {
                     requestData({
                         "url": "/api/open-mall-product/product/detail",
@@ -232,8 +189,9 @@
                 }
             },
             toSave() {
-                var self = this;
-
+                let self = this;
+                self.formData.categroyName = this.selectCateName;
+                self.formData.brandName = this.selectBrandName;
                 this.$refs["formData"].validate((valid) => {
                     if (valid) {
                         requestData({
@@ -255,7 +213,7 @@
                 this.$router.push({path: '/productList'});
             },
             onSubmit: function () {
-                var isValid = false;
+                let isValid = false;
                 this.$refs["formData"].validate((valid) => {
                     if (valid) {
                         isValid = true;
@@ -264,6 +222,23 @@
                     }
             });
                 return isValid;
+            },
+            selectItem(value){
+                let obj = {};
+                // this.categoryList.forEach(i => console.log(i));
+                obj = this.categoryList.find((item)=>{
+                    return item.value === value;//筛选出匹配数据
+                });
+                this.selectCateName = obj.label;
+                console.log(this.selectCateName);//我这边的name就是对应label的
+            },
+            selectBrandItem(value){
+                let obj = {};
+                obj = this.brandList.find((item)=>{
+                    return item.value === value;//筛选出匹配数据
+                });
+                this.selectBrandName = obj.label;
+                console.log(this.selectBrandName);//我这边的name就是对应label的
             }
         }
     }

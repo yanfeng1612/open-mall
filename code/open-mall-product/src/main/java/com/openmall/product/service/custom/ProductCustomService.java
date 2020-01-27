@@ -9,4 +9,5 @@ public interface ProductCustomService {
      * 增加商品
      */
     BasicResult addProduct(Product product);
+
 }
