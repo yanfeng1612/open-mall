@@ -11,6 +11,7 @@ public enum APIMsgCode {
 	FAILURE("300", "失败"),
 	BAD_REQUEST("400", "错误请求，参数不正确"),
 	UNAUTHORIZED("401", "无权限请求,请联系管理员授权"),
+	LOGIN_ERROR("402", "用户名或密码错误"),
 	CONFLICT("409", "主键重复"),
 	EXCEPTION("500", "服务器异常");
 
