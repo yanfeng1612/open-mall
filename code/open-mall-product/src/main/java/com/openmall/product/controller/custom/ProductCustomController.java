@@ -20,14 +20,12 @@ public class ProductCustomController {
     private ProductCustomService productCustomService;
 
     @RequestMapping(value = "/insert")
-    public Response<Product> add(Product product) {
+    public Response<Product> add(@RequestBody Product product) {
         Response<Product> response = new Response<>();
         try {
             BasicResult result = productCustomService.addProduct(product);
-//            APIMsgCode apiMsgCode = CodeConverter.convert(result.getCode());
-            response.setCode(result.getCode());
-            response.setMessage(result.getMsg());
-//            return response;
+            APIMsgCode apiMsgCode = CodeConverter.convert(result.getCode());
+            return ResponseTemplate.getResponse(apiMsgCode, null);
         } catch (Exception e) {
             response.setCode(APIMsgCode.FAILURE.getCode());
             response.setMessage(APIMsgCode.FAILURE.getValue());
@@ -35,4 +33,5 @@ public class ProductCustomController {
         }
         return response;
     }
+
 }

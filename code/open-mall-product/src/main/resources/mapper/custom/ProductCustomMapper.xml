@@ -228,75 +228,75 @@
         <trim prefixOverrides=",">
 
             <if test="id != null">
-                ,#id /* 自动编号 */
+                ,#{id}
             </if>
 
             <if test="productName != null">
-                ,#productName /* 商品名称 */
+                ,#{productName}
             </if>
 
             <if test="unit != null">
-                ,#unit /* 商品单位 */
+                ,#{unit}
             </if>
 
             <if test="categroyId != null">
-                ,#categroyId /* 商品分类id */
+                ,#{categroyId}
             </if>
 
             <if test="categroyName != null">
-                ,#categroyName /* 商品分类名称 */
+                ,#{categroyName}
             </if>
 
             <if test="brandId != null">
-                ,#brandId /* 商品品牌id */
+                ,#{brandId}
             </if>
 
             <if test="brandName != null">
-                ,#brandName /* 商品品牌名称 */
+                ,#{brandName}
             </if>
 
             <if test="description != null">
-                ,#description /* 描述 */
+                ,#{description}
             </if>
 
             <if test="imgePath != null">
-                ,#imgePath /* 图片路径 */
+                ,#{imgePath}
             </if>
 
             <if test="serialNumber != null">
-                ,#serialNumber /* 货号 */
+                ,#{serialNumber}
             </if>
 
             <if test="price != null">
-                ,#price /* 售价 */
+                ,#{price}
             </if>
 
             <if test="marketPrice != null">
-                ,#marketPrice /* 市场价 */
+                ,#{marketPrice}
             </if>
 
             <if test="stock != null">
-                ,#stock /* 库存 */
+                ,#{stock}
             </if>
 
             <if test="weight != null">
-                ,#weight /* 重量（单位克） */
+                ,#{weight}
             </if>
 
             <if test="rank != null">
-                ,#rank /* 排序 */
+                ,#{rank}
             </if>
 
             <if test="yn != null">
-                ,#yn /* 数据状态 0-无效 1-有效 */
+                ,#{yn}
             </if>
 
             <if test="createdTime != null">
-                ,#createdTime /* 创建时间 */
+                ,#{createdTime}
             </if>
 
             <if test="modifiedTime != null">
-                ,#modifiedTime /* 修改时间 */
+                ,#{modifiedTime}
             </if>
 
         </trim>
