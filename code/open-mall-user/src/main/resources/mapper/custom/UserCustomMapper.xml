@@ -50,7 +50,7 @@
         </trim>
     </sql>
 
-    <select id="findById" parameterType="java.lang.Long" resultMap="baseResultMap">
+    <select id="findUserByUserNameAndPassword" resultMap="baseResultMap">
         SELECT
         <include refid="queryColumns" />
         FROM  user  /* 用户表 */

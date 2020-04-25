@@ -1,7 +1,9 @@
 package com.openmall.order.domain.auto;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.stream.Collectors;
 
 import lombok.Data;
 

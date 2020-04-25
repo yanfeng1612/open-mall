@@ -1,6 +1,7 @@
 package com.openmall.user.service.impl.custom;
 
 import com.openmall.user.domain.auto.User;
+import com.openmall.user.manager.custom.UserCustomManger;
 import com.openmall.user.service.custom.UserCustomService;
 import com.openmall.user.service.impl.auto.UserServiceImpl;
 import org.slf4j.Logger;
@@ -14,17 +15,11 @@ public class UserCustomServiceImpl implements UserCustomService {
     private final static Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
-    private UserCustomServiceImpl userCustomService;
+    private UserCustomManger userCustomManger;
 
     @Override
     public User findUserByUserNameAndPassword(String useName, String password) {
-        User user = null;
-        try {
-            user = userCustomService.findUserByUserNameAndPassword(useName, password);
-        } catch (Exception e) {
-            LOG.error("UserCustomServiceImpl error: ",e);
-        }
-        return user;
+        return userCustomManger.findUserByUserNameAndPassword(useName, password);
     }
 
 }

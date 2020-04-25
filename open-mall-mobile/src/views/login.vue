@@ -56,15 +56,24 @@ export default {
       if(this.account!=="" && this.password!=="") {
         Toast('登录成功,存储token,跳转网页');
         this.toggle = false;
-        this.$store.commit('CHANGE_TOKEN',1);
+        // this.$store.commit('CHANGE_TOKEN',1);
+
+        this.$api({
+          method: 'post',
+          url: '/open-mall-user/login/in?username=1&password=1'
+        }).then((res) => {
+          // this.allData = res.data
+          console.log(res);
+        }).catch((error) => {
+          console.log(error)
+        })
+
       }else {
         Toast('账号密码不能为空');
       }
 
       setTimeout(()=>{
-        this.$router.replace({
-          path: 'user'
-        })
+        this.$router.replace({path: 'user'})
       },1000);
       // 登录成
     },
@@ -76,7 +85,6 @@ export default {
       this.toggle = true;
       this.account = '';
       this.password = '';
-
     }
   }
 }
